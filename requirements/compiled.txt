@@ -1,5 +1,5 @@
 # Choose your databses adapter
-#psycopg2
+psycopg2
 #MySQL-python
 
 # Use Jinja2 for templates instead of django's templating system
