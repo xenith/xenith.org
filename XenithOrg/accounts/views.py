@@ -2,10 +2,8 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template.context import RequestContext
 from django.contrib import auth
-from session_csrf import anonymous_csrf
 
 
-@anonymous_csrf
 def login(request):
     td = {}
     td['sections'] = {}

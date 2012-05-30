@@ -56,9 +56,8 @@ INSTALLED_APPS = [
     # Third-party apps, patches, fixes
     'commonware.response.cookies',
     'djcelery',
-    'session_csrf',
     'debug_toolbar',
-    #'debug_toolbar_user_panel',
+    'debug_toolbar_user_panel',
     #'memcache_toolbar',
 
     # Database migrations
@@ -143,7 +142,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'session_csrf.CsrfMiddleware',  # Must be after auth middleware.
     'django.contrib.messages.middleware.MessageMiddleware',
     'commonware.middleware.FrameOptionsHeader',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -156,7 +154,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.request',
     'django.core.context_processors.i18n',
     'django.core.context_processors.static',
-    'session_csrf.context_processor',
     'django.contrib.messages.context_processors.messages',
     #'jingo_minify.helpers.build_ids',
 ]
@@ -196,8 +193,8 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 DEBUG_TOOLBAR_PANELS = (
-    #'debug_toolbar_user_panel.panels.UserPanel',
     #'memcache_toolbar.panels.memcache.MemcachePanel',
+    'debug_toolbar_user_panel.panels.UserPanel',
     'debug_toolbar.panels.version.VersionDebugPanel',
     'debug_toolbar.panels.timer.TimerDebugPanel',
     'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',

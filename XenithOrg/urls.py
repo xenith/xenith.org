@@ -2,13 +2,8 @@
 
 from django.conf import settings
 from django.conf.urls.defaults import include, patterns
-from session_csrf import anonymous_csrf
 from django.contrib import admin
 admin.autodiscover()
-
-# django-session-csrf monkeypatcher
-import session_csrf
-session_csrf.monkeypatch()
 
 
 def bad(request):
@@ -20,7 +15,6 @@ urlpatterns = patterns('',
     (r'^blog/', include('XenithOrg.blog.urls')),
     (r'^accounts/', include('XenithOrg.accounts.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/$', anonymous_csrf(admin.site.admin_view(admin.site.index))),
     (r'^admin/', include(admin.site.urls)),
     #url(r'^', include('debug_toolbar_user_panel.urls')),
     (r'^bad/$', bad),
