@@ -3,13 +3,13 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site:
-  Twitter:
-  Location:
+  Lead Developer: Justin Seabrook-Rocha
+  Site: http://www.xenith.org/
+  Twitter: @xenith
+  Location: Sacramento, CA, US
 
 /* THANKS */
-  Names (& URL):
+  Names (& URL): Everyone
 
 /* SITE */
   Standards: HTML5, CSS3
