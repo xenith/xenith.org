@@ -127,8 +127,7 @@ def webserver_restart():
         with cd(env.code_dir):
             run("touch %s/wsgi.py" % env.project_dir)
     else:
-        with settings(warn_only=True):
-            webserver_stop()
+        webserver_stop()
         webserver_start()
 
 
@@ -201,10 +200,13 @@ def deploy():
     """
     Deploy the project.
     """
-    with settings(warn_only=True):
+    if getattr(env, 'initial_deploy', False):
         webserver_stop()
     push_sources()
     install_dependencies()
     update_database()
     build_static()
-    webserver_start()
+    if getattr(env, 'initial_deploy', False):
+        webserver_start()
+    else:
+        webserver_restart()
