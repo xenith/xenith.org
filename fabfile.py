@@ -14,13 +14,13 @@ from fabric.operations import _prefix_commands, _prefix_env_vars
 #from fabric.context_managers import cd, lcd, settings, hide
 
 # CHANGEME
-env.hosts = ['user@{{ project_name }}.example.com']
-env.code_dir = '/srv/www/{{ project_name }}'
-env.project_dir = '/srv/www/{{ project_name }}/{{ project_name }}'
-env.static_root = '/srv/www/{{ project_name }}/static/'
-env.virtualenv = '/srv/www/{{ project_name }}/.virtualenv'
-env.code_repo = 'git@github.com:user/{{project_name}}.git'
-env.django_settings_module = '{{ project_name }}.settings'
+env.hosts = ['xenith@xenith.org']
+env.code_dir = '/srv/www/xenith.org'
+env.project_dir = '/srv/www/xenith.org/XenithOrg'
+env.static_root = '/srv/www/xenith.org/static/'
+env.virtualenv = '/srv/www/xenith.org/.virtualenv'
+env.code_repo = 'git@github.com:xenith/xenith-org.git'
+env.django_settings_module = 'XenithOrg.settings'
 
 # Python version
 PYTHON_BIN = "python2.7"
@@ -29,7 +29,7 @@ PYTHON_FULL_PATH = "%s/bin/%s" % (PYTHON_PREFIX, PYTHON_BIN) if PYTHON_PREFIX el
 
 # Set to true if you can restart your webserver (via wsgi.py), false to stop/start your webserver
 # CHANGEME
-DJANGO_SERVER_RESTART = False
+DJANGO_SERVER_RESTART = True
 
 
 def virtualenv(venv_dir):
