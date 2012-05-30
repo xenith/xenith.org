@@ -17,6 +17,8 @@ def bad(request):
 
 urlpatterns = patterns('',
     (r'', include('XenithOrg.base.urls')),
+    (r'^blog/', include('XenithOrg.blog.urls')),
+    (r'^accounts/', include('XenithOrg.accounts.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/$', anonymous_csrf(admin.site.admin_view(admin.site.index))),
     (r'^admin/', include(admin.site.urls)),

@@ -69,6 +69,9 @@ INSTALLED_APPS = [
     'XenithOrg.base',
 
     # Local apps, referenced via XenithOrg.appname
+    'XenithOrg.accounts',
+    'XenithOrg.blog',
+
 ]
 
 # Place bcrypt first in the list, so it will be the default password hashing
@@ -208,7 +211,7 @@ DEBUG_TOOLBAR_PANELS = (
 )
 
 # Specify a model to use for user profiles, if desired.
-#AUTH_PROFILE_MODULE = 'XenithOrg.accounts.UserProfile'
+AUTH_PROFILE_MODULE = 'XenithOrg.accounts.UserProfile'
 
 FILE_UPLOAD_PERMISSIONS = 0664
 
