@@ -1,7 +1,7 @@
 """ Default urlconf for XenithOrg """
 
 from django.conf import settings
-from django.conf.urls.defaults import include, patterns
+from django.conf.urls.defaults import include, patterns, url
 from django.contrib import admin
 admin.autodiscover()
 
@@ -11,13 +11,13 @@ def bad(request):
     1 / 0
 
 urlpatterns = patterns('',
-    (r'', include('XenithOrg.base.urls')),
-    (r'^blog/', include('XenithOrg.blog.urls')),
-    (r'^accounts/', include('XenithOrg.accounts.urls')),
-    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/', include(admin.site.urls)),
-    #url(r'^', include('debug_toolbar_user_panel.urls')),
-    (r'^bad/$', bad),
+    url(r'', include('XenithOrg.base.urls')),
+    url(r'^blog/', include('XenithOrg.blog.urls')),
+    url(r'^accounts/', include('XenithOrg.accounts.urls')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('debug_toolbar_user_panel.urls')),
+    url(r'^bad/$', bad),
 )
 
 ## In DEBUG mode, serve media files through Django.

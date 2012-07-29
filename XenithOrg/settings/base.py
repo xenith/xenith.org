@@ -194,6 +194,7 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 DEBUG_TOOLBAR_PANELS = (
+    'debug_toolbar_user_panel.panels.UserPanel',
     #'memcache_toolbar.panels.memcache.MemcachePanel',
     'debug_toolbar_user_panel.panels.UserPanel',
     'debug_toolbar.panels.version.VersionDebugPanel',
