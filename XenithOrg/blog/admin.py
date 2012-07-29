@@ -1,3 +1,7 @@
+"""
+Register models with admin site
+"""
+
 from django.contrib import admin
 from XenithOrg.blog.models import (Article, Attachment, Blog, Microblog, Tag)
 

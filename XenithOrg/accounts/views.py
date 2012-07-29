@@ -7,17 +7,17 @@ from django.contrib import auth
 def login(request):
     td = {}
     td['sections'] = {}
-    td['next'] = request.GET.get('next', '')
+    td['next'] = request.GET.get('next', '/admin/')
 
     if request.method == "POST":
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
-        #next = request.POST.get('next', '/admin/')
+        next = request.POST.get('next', '/admin/')
 
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return HttpResponseRedirect('/admin/')
+            return HttpResponseRedirect(next)
 
     return render_to_response("accounts/login.html",
                               td,
