@@ -4,7 +4,7 @@
 
 /* TEAM */
   Lead Developer: Justin Seabrook-Rocha
-  Site: http://www.xenith.org/
+  Site: http://xenith.org/
   Twitter: @xenith
   Location: Sacramento, CA, US
 

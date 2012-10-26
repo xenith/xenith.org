@@ -33,6 +33,8 @@ DATABASES = {
 # Uncomment this and set to all slave DBs in use on the site.
 # SLAVE_DATABASES = ['slave']
 
+SITE_URL = 'http://127.0.0.1:8000'
+
 # Recipients of traceback emails and other notifications.
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

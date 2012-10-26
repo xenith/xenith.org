@@ -9,24 +9,6 @@ import os
 # Your project root
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../../")
 
-# Bundles is a dictionary of two dictionaries, css and js, which list css files
-# and js files that can be bundled together by the minify app.
-MINIFY_BUNDLES = {
-    'css': {
-        'base_css': (
-            'css/style.css',
-        ),
-    },
-    'js': {
-        'libs_js': (
-            'js/libs/jquery-1.6.2.min.js',
-            'js/libs/modernizr-2.0.6.min.js',
-        ),
-    }
-}
-
-SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
-
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
@@ -36,10 +18,11 @@ SITE_ID = 1
 # Defines the views served for root URLs.
 ROOT_URLCONF = 'XenithOrg.urls'
 
-INSTALLED_APPS = [
-    # Template apps
-    'jingo_minify',
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = 'base.home'
+LOGIN_REDIRECT_URL_FAILURE = 'base.home'
 
+INSTALLED_APPS = [
     # Django contrib apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,6 +39,7 @@ INSTALLED_APPS = [
     # Third-party apps, patches, fixes
     'commonware.response.cookies',
     'djcelery',
+    'compressor',
     'debug_toolbar',
     'debug_toolbar_user_panel',
     #'memcache_toolbar',
@@ -63,7 +47,7 @@ INSTALLED_APPS = [
     # Database migrations
     'south',
 
-    # Application base, containing global templates.
+    # Application base, containing global templates and models
     'XenithOrg.base',
 
     # Local apps, referenced via XenithOrg.appname
@@ -131,11 +115,25 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+# Storage of static files
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_CSS_FILTERS = (
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter'
+)
+COMPRESS_PRECOMPILERS = (
+    #('text/coffeescript', 'coffee --compile --stdio'),
+    ('text/less', 'lessc {infile} {outfile}'),
+    #('text/x-sass', 'sass {infile} {outfile}'),
+    #('text/x-scss', 'sass --scss {infile} {outfile}'),
+)
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 MIDDLEWARE_CLASSES = [
@@ -225,3 +223,6 @@ JINGO_EXCLUDE_APPS = [
 
 # The WSGI Application to use for runserver
 WSGI_APPLICATION = 'XenithOrg.wsgi.application'
+
+# Path to Java. Used for compress_assets.
+JAVA_BIN = '/usr/bin/java'
