@@ -1,6 +1,7 @@
 */settings/local.py
 *.py[co]
 *.sw[po]
+*.egg*
 .coverage
 .virtualenv
 pip-log.txt
@@ -8,16 +9,14 @@ docs/_gh-pages
 build.py
 build
 .DS_Store
-*-min.css
-*-all.css
-*-min.js
-*-all.js
 .noseids
 tmp/*
+*.swp
 *~
 *.mo
+*.log
+*.db
 db/
-test_db/
 .vagrant
 *.sublime-project
 *.sublime-workspace
