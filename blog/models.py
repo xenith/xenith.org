@@ -39,15 +39,15 @@ class Article(models.Model):
     title = models.CharField("article title", max_length=255)
     author = models.ForeignKey(User)
     published_date = models.DateTimeField(
-            default=datetime.now,
-            help_text="The date and time this article shall appear online.")
+        default=datetime.now,
+        help_text="The date and time this article shall appear online.")
     expiration_date = models.DateTimeField(
-            blank=True, null=True,
-            help_text="Leave blank if the article does not expire.")
-    created_time = models.DateTimeField(auto_now_add=True, editable=false)
-    edited_time = models.DateTimeField(auto_now=True, editable=false)
+        blank=True, null=True,
+        help_text="Leave blank if the article does not expire.")
+    created_time = models.DateTimeField(auto_now_add=True, editable=False)
+    edited_time = models.DateTimeField(auto_now=True, editable=False)
     series = models.CharField("Series name", max_length=255,
-            blank=True, default="")
+                                blank=True, default="")
     slug = models.SlugField("article slug", unique_for_year=published_date)
     teaser = models.TextField("article teaser")
     content = models.TextField("article content")
@@ -67,7 +67,7 @@ class Article(models.Model):
         return self.title
 
     class Meta:
-        ordering = ("-published_date")
+        ordering = ["-published_date"]
         get_latest_by = "published_date"
 
 

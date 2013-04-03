@@ -63,10 +63,10 @@ INSTALLED_APPS = (
     'south',
 
     # Application base, containing global templates.
-    'xenith.base',
+    'base',
 
-    # Local apps, referenced via xenith.appname
-    'xenith.blog',
+    # Local apps, referenced via appname
+    'blog',
 )
 
 # Place bcrypt first in the list, so it will be the default password hashing
@@ -207,12 +207,12 @@ DEBUG_TOOLBAR_PANELS = (
 )
 
 # Specify a custom user model to use
-#AUTH_USER_MODEL = 'xenith.accounts.MyUser'
+#AUTH_USER_MODEL = 'accounts.MyUser'
 
 FILE_UPLOAD_PERMISSIONS = 0664
 
 # The WSGI Application to use for runserver
-WSGI_APPLICATION = 'xenith.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 # Define your database connections
 DATABASES = {
