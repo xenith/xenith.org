@@ -1,1 +1,1 @@
-""" XenithOrg.blog """
+""" blog app """

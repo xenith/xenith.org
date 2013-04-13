@@ -37,6 +37,9 @@ South
 # Feature testing
 #django-waffle
 
+# Other
+django-taggit
+
 # Various tidbits
 commonware
 -e git://github.com/mozilla/nuggets.git#egg=nuggets

@@ -3,7 +3,7 @@ Register models with admin site
 """
 
 from django.contrib import admin
-from XenithOrg.blog.models import (Article, Attachment, Blog, Microblog, Tag)
+from blog.models import Article, Attachment, Blog, Microblog
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -17,4 +17,3 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Attachment)
 admin.site.register(Blog)
 admin.site.register(Microblog)
-admin.site.register(Tag)

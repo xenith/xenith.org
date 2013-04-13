@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'djcelery',
     'debug_toolbar',
     'compressor',
+    'taggit',
     #'debug_toolbar_user_panel',
 
     # Database migrations
@@ -207,12 +208,12 @@ DEBUG_TOOLBAR_PANELS = (
 )
 
 # Specify a custom user model to use
-#AUTH_USER_MODEL = 'accounts.MyUser'
+#AUTH_USER_MODEL = 'base.User'
 
 FILE_UPLOAD_PERMISSIONS = 0664
 
 # The WSGI Application to use for runserver
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = 'xenith.wsgi.application'
 
 # Define your database connections
 DATABASES = {

@@ -1,1 +1,11 @@
-{% extends "base.html" %}
+{% extends "_layouts/base.html" %}
+
+{% block page_title %}Xenith.org - Blog{% endblock %}
+{% block page_class %}article-list{% endblock %}
+{% block content %}
+
+{% for object in object_list %}
+Object!
+{% endfor %}
+
+{% endblock %}

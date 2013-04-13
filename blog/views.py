@@ -2,20 +2,16 @@
 View functions for the blog app
 """
 
-from django.shortcuts import get_object_or_404, render
-from .models import Article
+#from django.shortcuts import render
+from django.views.generic.list import ListView
+from django.utils import timezone
+from blog.models import Article
 
-def index(request):
-    """
-    Front page for a blog instance
-    """
-    return render(request, 'blog/index.html')
 
-def article_list(request, *args, **kwargs):
-    article_list = Article.objects.filter(published=True)
+class ArticleListView(ListView):
+    model = Article
 
-    context = {
-        "article_list": article_list
-    }
-
-    return render(request, 'blog/article_list.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
