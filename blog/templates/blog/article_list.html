@@ -4,8 +4,8 @@
 {% block page_class %}article-list{% endblock %}
 {% block content %}
 
-{% for object in object_list %}
-Object!
+{% for article in object_list %}
+  <a href={% url "article-detail" pk=article.id slug=article.slug year=article.published_date.year month=article.published_date.month %}>{{ article }} </a><br />
 {% endfor %}
 
 {% endblock %}

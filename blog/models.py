@@ -4,6 +4,7 @@ Model classes and methods for the blog app
 
 from django.db import models
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from datetime import datetime
 from taggit.managers import TaggableManager
 
@@ -27,8 +28,22 @@ class Article(models.Model):
     A single article
     """
     blog = models.ForeignKey(Blog)
-    title = models.CharField("article title", max_length=255)
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    title = models.CharField("article title", max_length=255)
+    slug = models.SlugField("article slug", unique_for_year="published_date")
+    series = models.CharField("series name", max_length=255,
+                              blank=True, default="")
+    teaser = models.TextField("article teaser")
+    content = models.TextField("article content")
+    markup_type = models.CharField(max_length=10, choices=(
+        ("rst", "reStructuredText"),
+        ("markdown", "Markdown"),
+        ("textile", "Textile"),
+        ("html", "HTML"),
+    ), default="rst")
+    published = models.BooleanField("published?", default=False)
+    allow_comments = models.BooleanField("allow comments?", default=True)
+    show_comments = models.BooleanField("show comments?", default=True)
     published_date = models.DateTimeField(
         default=datetime.now,
         help_text="The date and time this article shall appear online.")
@@ -37,19 +52,6 @@ class Article(models.Model):
         help_text="Leave blank if the article does not expire.")
     created_time = models.DateTimeField(auto_now_add=True, editable=False)
     edited_time = models.DateTimeField(auto_now=True, editable=False)
-    series = models.CharField("Series name", max_length=255,
-                              blank=True, default="")
-    slug = models.SlugField("article slug", unique_for_year=published_date)
-    teaser = models.TextField("article teaser")
-    content = models.TextField("article content")
-    markup_type = models.CharField(max_length=10, choices=(
-        ("html", "HTML"),
-        ("rst", "reStructuredText"),
-        ("markdown", "Markdown"),
-    ), default="markdown")
-    published = models.BooleanField("published?", default=False)
-    allow_comments = models.BooleanField("allow comments?", default=True)
-    show_comments = models.BooleanField("show comments?", default=True)
 
     objects = models.Manager()
     tags = TaggableManager()
@@ -61,13 +63,16 @@ class Article(models.Model):
         ordering = ["-published_date"]
         get_latest_by = "published_date"
 
+    def get_absolute_url(self):
+        return reverse('article-detail', kwargs={'pk': self.id, 'year': self.published_date.year, 'month': self.published_date.month, 'slug': self.slug})
+
 
 class Attachment(models.Model):
     """
     An uploaded file attached to an article
     """
     path = models.FileField(upload_to=lambda inst, fn:
-                            'attachment/%s/%s/%s' % (datetime.now().year, inst.article.slug, fn))
+                            'media/%s/%s/%s' % (datetime.now().year, inst.article.slug, fn))
     article = models.ForeignKey(Article)
 
     def __unicode__(self):
@@ -92,4 +97,3 @@ class Microblog(models.Model):
                                           auto_now_add=True)
 
     objects = models.Manager()
-    tags = TaggableManager()
