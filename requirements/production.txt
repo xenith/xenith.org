@@ -40,5 +40,3 @@ South
 # Other
 django-taggit
 
-# Various tidbits
-commonware

@@ -1,5 +1,7 @@
-""" Basic models, such as user profile """
+""" Basic models, such as user model """
 
+from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -8,6 +10,7 @@ from django.utils.http import urlquote
 from django.core.mail import send_mail
 
 
+@python_2_unicode_compatible
 class User(AbstractBaseUser):
     email = models.EmailField(
         verbose_name='email address',
@@ -57,7 +60,7 @@ class User(AbstractBaseUser):
         """
         send_mail(subject, message, from_email, [self.email])
 
-    def __unicode__(self):
+    def __str__(self):
         return self.email
 
     def has_perm(self, perm, obj=None):

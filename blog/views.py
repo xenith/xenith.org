@@ -2,6 +2,7 @@
 View functions for the blog app
 """
 
+from __future__ import unicode_literals
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.utils import timezone

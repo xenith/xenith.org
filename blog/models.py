@@ -2,6 +2,8 @@
 Model classes and methods for the blog app
 """
 
+from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
@@ -9,6 +11,7 @@ from datetime import datetime
 from taggit.managers import TaggableManager
 
 
+@python_2_unicode_compatible
 class Blog(models.Model):
     """
     A single blog that consists of multiple articles
@@ -19,10 +22,11 @@ class Blog(models.Model):
     description = models.TextField("blog description")
     posts_per_page = models.PositiveIntegerField(default=10)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
+@python_2_unicode_compatible
 class Article(models.Model):
     """
     A single article
@@ -56,7 +60,7 @@ class Article(models.Model):
     objects = models.Manager()
     tags = TaggableManager()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
@@ -67,6 +71,7 @@ class Article(models.Model):
         return reverse('article-detail', kwargs={'pk': self.id, 'year': self.published_date.year, 'month': self.published_date.month, 'slug': self.slug})
 
 
+@python_2_unicode_compatible
 class Attachment(models.Model):
     """
     An uploaded file attached to an article
@@ -75,10 +80,11 @@ class Attachment(models.Model):
                             'media/%s/%s/%s' % (datetime.now().year, inst.article.slug, fn))
     article = models.ForeignKey(Article)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.path
 
 
+@python_2_unicode_compatible
 class Microblog(models.Model):
     """
     A ticker-style widget for displaying data from a microblog service,
@@ -97,3 +103,6 @@ class Microblog(models.Model):
                                           auto_now_add=True)
 
     objects = models.Manager()
+
+    def __str__(self):
+        return self.service
