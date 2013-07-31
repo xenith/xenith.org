@@ -39,4 +39,4 @@ South
 
 # Other
 django-taggit
-
+django-powerdns-dnssec

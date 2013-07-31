@@ -25,6 +25,8 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../../")
 
 SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
 
+DATABASE_ROUTERS = ['powerdns.routers.PowerDNSRouter']
+
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
@@ -53,11 +55,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Third-party apps, patches, fixes
-    'djcelery',
+    #'djcelery',
     'debug_toolbar',
     'compressor',
     'taggit',
-    #'debug_toolbar_user_panel',
+    'powerdns',
 
     # Database migrations
     'south',
