@@ -1,5 +1,5 @@
 """
-Starter fabfile for deploying the {{ project_name }} project.
+Starter fabfile for deploying the xenith project.
 
 Change all the things marked CHANGEME. Other things can be left at their
 defaults if you are happy with the default layout.
@@ -13,14 +13,13 @@ from fabric.operations import _prefix_commands, _prefix_env_vars
 #from fabric.decorators import runs_once
 #from fabric.context_managers import cd, lcd, settings, hide
 
-# CHANGEME
 env.hosts = ['xenith@xenith.org']
 env.code_dir = '/srv/www/xenith.org'
-env.project_dir = '/srv/www/xenith.org/XenithOrg'
+env.project_dir = '/srv/www/xenith.org/xenith'
 env.static_root = '/srv/www/xenith.org/static/'
 env.virtualenv = '/srv/www/xenith.org/.virtualenv'
 env.code_repo = 'git@github.com:xenith/xenith-org.git'
-env.django_settings_module = 'XenithOrg.settings'
+env.django_settings_module = 'xenith.settings'
 
 # Python version
 PYTHON_BIN = "python2.7"
@@ -29,7 +28,7 @@ PYTHON_FULL_PATH = "%s/bin/%s" % (PYTHON_PREFIX, PYTHON_BIN) if PYTHON_PREFIX el
 
 # Set to true if you can restart your webserver (via wsgi.py), false to stop/start your webserver
 # CHANGEME
-DJANGO_SERVER_RESTART = True
+DJANGO_SERVER_RESTART = False
 
 
 def virtualenv(venv_dir):
@@ -51,7 +50,7 @@ def install_dependencies():
     ensure_virtualenv()
     with virtualenv(env.virtualenv):
         with cd(env.code_dir):
-            run_venv("pip install -r requirements/prod.txt")
+            run_venv("pip install -r requirements/production.txt")
 
 
 def ensure_virtualenv():
@@ -135,7 +134,7 @@ def webserver_restart():
 def restart():
     """ Restart the wsgi process """
     with cd(env.code_dir):
-        run("touch %s/{{ project_name }}/wsgi.py" % env.code_dir)
+        run("touch %s/xenith/wsgi.py" % env.code_dir)
 
 
 def build_static():

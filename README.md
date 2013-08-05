@@ -1,5 +1,5 @@
 
-# Xenithorg Project #
+# The Xenith.org Project #
 
 ## About ##
 
@@ -7,7 +7,7 @@ Describe your project here.
 
 ## Prerequisites ##
 
-- Python >= 2.5
+- Python 2.6 or 2.7
 - pip
 - virtualenv (virtualenvwrapper is recommended for use during development)
 
