@@ -44,6 +44,7 @@ $header-padding-bottom: 0.7em !default;
 }
 
 body {
+  background-color: transparent;
   -webkit-text-size-adjust: none;
   max-width: $max-width;
   position: relative;
@@ -150,9 +151,10 @@ body.sidebar-footer {
     }
   }
   aside.sidebar {
-    width: $sidebar-width-medium - $sidebar-pad-medium*2;
+    width: $sidebar-width-medium + 1;
     padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
     background: none;
+    background-color: darken($sidebar-bg, 3);
     clear: none;
     float: left;
     margin: 0 -100% 0 0;
@@ -176,7 +178,7 @@ body.sidebar-footer {
     }
   }
   aside.sidebar {
-    width: $sidebar-width-wide - $sidebar-pad-wide*2;
+    width: $sidebar-width-wide + 1;
     padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
     .collapse-sidebar & {
       padding: { left: $pad-wide; right: $pad-wide; }
