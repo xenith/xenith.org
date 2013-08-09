@@ -4,6 +4,7 @@
 *.egg*
 .coverage
 .virtualenv
+.venv
 .sass-cache
 pip-log.txt
 docs/_gh-pages
