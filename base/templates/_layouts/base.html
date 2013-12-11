@@ -1,4 +1,5 @@
 {% load compress %}
+{% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -21,14 +22,14 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
 
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css" media="screen, projection" type="text/css">
   {% compress css %}
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" media="screen, projection" type="text/css">
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/screen.css" media="screen, projection" type="text/css">
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css" media="screen, projection" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" media="screen, projection" type="text/css">
   {% block css %}{% endblock %}
   {% endcompress %}
   <link rel="canonical" href="http://xenith.org/">
-  <link href="{{ STATIC_URL }}favicon.png" rel="icon">
+  <link href="{% static 'favicon.png' %}" rel="icon">
   <link href="http://feeds.feedburner.com/xenith" rel="alternate" title="Xenith.org" type="application/atom+xml">
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -36,12 +37,12 @@
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{{ STATIC_URL}}javascripts/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="{% static 'javascripts/vendor/jquery-1.10.1.min.js' %}"><\/script>')</script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
   {% compress js %}
-  <script src="{{ STATIC_URL }}javascripts/libs/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-  <script src="{{ STATIC_URL }}javascripts/libs/bootstrap.min.js"></script>
-  <script src="{{ STATIC_URL }}javascripts/plugins.js"></script>
-  <script src="{{ STATIC_URL }}javascripts/main.js"></script>
+  <script src="{% static 'javascripts/libs/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
+  <script src="{% static 'javascripts/plugins.js' %}"></script>
+  <script src="{% static 'javascripts/main.js' %}"></script>
   {% endcompress %}
 </head>
 <body class="{% block body_class %}{% endblock %}">

@@ -25,13 +25,13 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../../")
 
 SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
 
-DATABASE_ROUTERS = ['powerdns.routers.PowerDNSRouter']
+DATABASE_ROUTERS = ['powerdns_manager.routers.PowerdnsManagerDbRouter']
+PDNS_DEFAULT_ZONE_TYPE = 'MASTER'
+PDNS_ALLOW_WILDCARD_NAMES = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
-
-SITE_ID = 1
 
 # Defines the views served for root URLs.
 ROOT_URLCONF = 'xenith.urls'
@@ -45,11 +45,8 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
-    'django.contrib.admindocs',
-    'django.contrib.markup',
     'django.contrib.humanize',
     'django.contrib.syndication',
     'django.contrib.staticfiles',
@@ -59,7 +56,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'compressor',
     'taggit',
-    'powerdns',
+    'powerdns_manager',
 
     # Database migrations
     'south',
@@ -74,6 +71,7 @@ INSTALLED_APPS = (
 # Place bcrypt first in the list, so it will be the default password hashing
 # mechanism
 PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     'django.contrib.auth.hashers.BCryptPasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
@@ -201,7 +199,6 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 DEBUG_TOOLBAR_PANELS = (
-    #'debug_toolbar_user_panel.panels.UserPanel',
     'debug_toolbar.panels.version.VersionDebugPanel',
     'debug_toolbar.panels.timer.TimerDebugPanel',
     'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
@@ -283,9 +280,8 @@ ALLOWED_HOSTS = ['.xenith.org']
 
 INTERNAL_IPS = ('127.0.0.1')
 
-# Enable these options for memcached
+# Enable this option for memcached
 #CACHE_BACKEND= "memcached://127.0.0.1:11211/"
-#CACHE_MIDDLEWARE_ANONYMOUS_ONLY=True
 
 # Set this to true if you use a proxy that sets X-Forwarded-Host
 #USE_X_FORWARDED_HOST = False
