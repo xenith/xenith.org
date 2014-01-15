@@ -1,18 +1,12 @@
-# This file pulls in everything a developer needs. If it's a basic package
-# needed to run the site, it belongs in requirements/production.txt. If it's a
-# package for developers (testing, docs, etc.), it goes in this file.
--r production.txt
-
-# Deployment
-Fabric
-
-# Documentation
+# Local development dependencies go here
+-r base.txt
+coverage==3.6
 Sphinx
-
-# Testing
 nose
-mock
+Fabric
 django-nose
-coverage
 pep8
 pylint
+
+# django-debug-toolbar that works with Django 1.5+
+django-debug-toolbar==1.0

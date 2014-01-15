@@ -1,40 +1,8 @@
-# Install everything that needs to be compiled
--r compiled.txt
+# Pro-tip: Try not to put anything here. There should be no dependency in
+# production that isn't in development.
+-r base.txt
 
-# Django stuff
-Django>=1.6
-
-# Templates
-Markdown
-django_compressor
-
-# Security
-bleach
-#cef
-
-# Logging
-#raven
-
-# Celery: Message queue
-celery
-django-celery
-
-# L10n/i18n
-#Babel
-#-e git://github.com/clouserw/tower.git#egg=tower
-
-# Caching
-python-memcached
-
-# Admin
-django-debug-toolbar
-
-# Migrations
-South
-
-# Feature testing
-#django-waffle
-
-# Other
-django-taggit
-django-powerdns-manager
+#gunicorn==0.17.4
+#django-storages==1.1.4
+#gevent==0.13.8
+#boto==2.9.5

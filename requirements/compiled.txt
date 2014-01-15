@@ -1,5 +1,0 @@
-# Choose your databases adapter
-psycopg2
-
-# for bcrypt passwords
-bcrypt

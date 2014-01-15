@@ -1,26 +1,37 @@
-*/settings/local.py
-*.py[co]
+# Basics
+*.py[cod]
+__pycache__
 *.sw[po]
 *.egg*
-.coverage
 .virtualenv
 .venv
-.sass-cache
-pip-log.txt
-docs/_gh-pages
-build.py
-build
 .DS_Store
-.noseids
-tmp/*
-*.swp
-*~
-*.mo
-*.log
-*.db
-db/
-.vagrant
 *.sublime-project
 *.sublime-workspace
+*.sqlite*
 media/*
-static/*
+
+# Logs
+*.log
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+.noseids
+
+# Translations
+*.mo
+*.pot
+
+# Vim
+*~
+*.swp
+*.swo
+
+# npm
+node_modules/
+
+# Campass
+.sass-cache
