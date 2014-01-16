@@ -38,4 +38,4 @@ django-taggit
 django-powerdns-manager
 Markdown
 bcrypt
-#django_compressor
+django_compressor

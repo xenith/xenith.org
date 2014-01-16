@@ -189,15 +189,15 @@ class Common(Configuration):
     STATIC_URL = '/static/'
 
     # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-    STATICFILES_DIRS = (
-        join(BASE_DIR, 'static'),
-    )
+    # STATICFILES_DIRS = (
+    #     join(BASE_DIR, 'static'),
+    # )
 
     # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
     STATICFILES_FINDERS = (
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        'compressor.finders.CompressFinder',
+        'compressor.finders.CompressorFinder',
     )
     ########## END STATIC FILE CONFIGURATION
 
@@ -298,8 +298,8 @@ class Local(Common):
     ########## End mail settings
 
     ########## django-debug-toolbar
-    MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-    INSTALLED_APPS += ('debug_toolbar','django_nose',)
+    #MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    #INSTALLED_APPS += ('debug_toolbar','django_nose',)
 
     INTERNAL_IPS = ('127.0.0.1',)
 
@@ -307,8 +307,7 @@ class Local(Common):
         'INTERCEPT_REDIRECTS': False,
         'SHOW_TEMPLATE_CONTEXT': True,
         'ENABLE_STACKTRACES': True,
-        'TAG': 'body',
-        'HIDE_DJANGO_SQL': True,
+        'INSERT_BEFORE': 'body',
         #'SHOW_TOOLBAR_CALLBACK': custom_show_toolbar,
     }
 

@@ -9,10 +9,6 @@
 <head>
   <meta charset="utf-8">
 
-  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/i/378 -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
   <title>{% block page_title %}{{ _("Xenith.org") }}{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}{% endblock %}">
   <meta name="author" content="{% block meta_author %}{% endblock %}">
@@ -29,7 +25,7 @@
   <![endif]-->
 
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" media="screen, projection" type="text/css">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
   {% compress css %}
   <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection" type="text/css">
   <link rel="stylesheet" href="{% static 'css/main.css' %}" media="screen, projection" type="text/css">
@@ -37,7 +33,7 @@
   {% endcompress %}
   <link rel="canonical" href="http://xenith.org/">
   <link href="{% static 'favicon.png' %}" rel="icon">
-  <link href="http://feeds.feedburner.com/xenith" rel="alternate" title="Xenith.org" type="application/atom+xml">
+  <link href="http://xenith.org/feed" rel="alternate" title="Xenith.org" type="application/atom+xml">
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -114,7 +110,7 @@
               if (!window.jXHR){
                 var jxhr = document.createElement('script');
                 jxhr.type = 'text/javascript';
-                jxhr.src = '{{ STATIC_URL }}javascripts/libs/jXHR.js';
+                jxhr.src = '{{ STATIC_URL }}js/libs/jXHR.js';
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(jxhr, s);
               }
@@ -127,7 +123,7 @@
               });
             });
           </script>
-          <script src="{{ STATIC_URL }}javascripts/github.js" type="text/javascript"> </script>
+          <script src="{{ STATIC_URL }}js/github.js" type="text/javascript"> </script>
       </section>
       <section>
         <h1>Latest Tweets</h1>
