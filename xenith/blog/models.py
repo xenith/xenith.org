@@ -68,7 +68,13 @@ class Article(models.Model):
         get_latest_by = "published_date"
 
     def get_absolute_url(self):
-        return reverse('article-detail', kwargs={'pk': self.id, 'year': self.published_date.year, 'month': self.published_date.month, 'slug': self.slug})
+        return reverse('article-detail',
+            kwargs={
+            'pk': self.id,
+            'year': self.published_date.year,
+            'month': self.published_date.month,
+            'slug': self.slug
+            })
 
 
 @python_2_unicode_compatible

@@ -298,8 +298,8 @@ class Local(Common):
     ########## End mail settings
 
     ########## django-debug-toolbar
-    #MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-    #INSTALLED_APPS += ('debug_toolbar','django_nose',)
+    MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    INSTALLED_APPS += ('debug_toolbar','django_nose',)
 
     INTERNAL_IPS = ('127.0.0.1',)
 
