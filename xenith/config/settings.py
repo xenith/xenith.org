@@ -212,7 +212,7 @@ class Common(Configuration):
     ########## END MEDIA CONFIGURATION
 
     ########## URL Configuration
-    ROOT_URLCONF = 'config.urls'
+    ROOT_URLCONF = 'urls'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
     WSGI_APPLICATION = 'config.wsgi.application'
