@@ -39,7 +39,7 @@
 {% endblock entry-content %}
 
 {% block entry-widgets %}
-<div class="entry-widgets">
+<aside class="entry-widgets">
   {% block entry-next-entry %}
   {% with next_entry=object.next_entry %}
   {% if next_entry %}
@@ -90,11 +90,11 @@
     {% get_similar_entries %}
   </div>
   {% endblock entry-similar-entries %}
-</div>
+</aside>
 {% endblock entry-widgets %}
 
 {% block entry-comments %}
-<div id="comments">
+<section id="comments">
   <h3>{% trans "Comments" %}</h3>
   {% if object.comment_count %}
   {% with comment_list=object.comments %}
@@ -134,11 +134,11 @@
   <p>{% trans "Comments are closed." %}</p>
     {% endif %}
   {% endif %}
-</div>
+</section>
 {% endblock entry-comments %}
 
 {% block entry-pingbacks %}
-<div id="pingbacks">
+<section id="pingbacks">
   <h3>{% trans "Pingbacks" %}</h3>
   {% if object.pingback_count %}
   {% with pingback_list=object.pingbacks %}
@@ -169,12 +169,12 @@
   {% else %}
   <p>{% trans "Pingbacks are closed." %}</p>
   {% endif %}
-</div>
+</section>
 {% endblock entry-pingbacks %}
 
 {% block entry-trackbacks %}
 {% if object.trackback_count or object.trackbacks_are_open %}
-<div id="trackbacks">
+<section id="trackbacks">
   <h3>{% trans "Trackbacks" %}</h3>
   {% if object.trackback_count %}
   {% with trackback_list=object.trackbacks %}
@@ -206,7 +206,7 @@
       {% trans "Trackback URL" %}</a>
   </p>
   {% endif %}
-</div>
+</section>
 {% endif %}
 {% endblock entry-trackbacks %}
 
