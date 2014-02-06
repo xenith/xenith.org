@@ -1,6 +1,6 @@
-<ul class="breadcrumbs">
+<ul class="breadcrumbs breadcrumb">
   {% for crumb in breadcrumbs %}
-  <li>
+  <li {% if forloop.last %}class="active"{% endif%}>
     {% if crumb.url %}
     <a href="{{ crumb.url }}" title="{{ crumb.name }}">{{ crumb.name }}</a>
     {% else %}

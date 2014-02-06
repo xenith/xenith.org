@@ -16,11 +16,11 @@
 <h1>{% trans "Search results for" %} '{{ pattern }}'</h1>
 
 {% if error %}
-<p class="error">{{ error }}</p>
+<p class="error alert alert-error">{{ error }}</p>
 {% endif %}
 
 {% if object_list %}
-<p class="success">
+<p class="success alert alert-success">
   {% blocktrans count entry_count=paginator.count %}{{ entry_count }} entry found{% plural %}{{ entry_count }} entries found{% endblocktrans %}
 </p>
 {% endif %}
@@ -31,7 +31,7 @@
 {% for object in object_list %}
   {% include object.content_template with object_content=object.html_preview continue_reading=1 %}
 {% empty %}
-<p class="info">{% trans "Nothing found." %}</p>
+<p class="info alert alert-info">{% trans "Nothing found." %}</p>
 {% endfor %}
 {% endif %}
 {% endblock content-loop %}

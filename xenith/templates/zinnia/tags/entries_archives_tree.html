@@ -1,8 +1,8 @@
 {% load i18n %}
 {% regroup archives by year as year_list %}
-<ul class="{% if not archives %}no-{% endif %}archives-entries-tree">
+<ul class="list-group {% if not archives %}no-{% endif %}archives-entries-tree">
   {% for year in year_list %}
-  <li>
+  <li class="list-group-item">
     <a title="{% trans "Archives" %} {{ year.grouper }}" rel="archives"
        href="{% url 'zinnia_entry_archive_year' year.grouper %}">{{ year.grouper }}</a>
     {% regroup year.list by month as month_list %}
@@ -33,8 +33,8 @@
     </ul>
   </li>
   {% empty %}
-  <li>
-    {% trans "No archives yet." %}
+  <li class="list-group-item">
+    <a href="#">{% trans "No archives yet." %}</a>
   </li>
   {% endfor %}
 </ul>

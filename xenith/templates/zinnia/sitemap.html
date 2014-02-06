@@ -12,16 +12,18 @@
   <h3>{% trans "Entries per categories" %}</h3>
   {% for category in categories %}
   <h4>{{ category }}</h4>
-  <ul>
+  <ul class="list-group">
     {% for entry in category.entries_published.all %}
-    <li>
+    <li class="list-group-item">
       <a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
       {% with comment_count=entry.comments.count %}
+      <span class="badge">
       - {{ comment_count }} {% trans "comment" %}{{ comment_count|pluralize }}
+      </span>
       {% endwith %}
     </li>
     {% empty %}
-    <li>
+    <li class="list-group-item">
       {% trans "No entries yet." %}
     </li>
     {% endfor %}
@@ -31,17 +33,19 @@
 
 <div class="allentries">
   <h3>{% trans "All the entries" %}</h3>
-  <ul>
+  <ul class="list-group">
     {% for entry in entries %}
-    <li>
+    <li class="list-group-item">
       <a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
       - {{ entry.creation_date|date:"SHORT_DATE_FORMAT" }}
       {% with comment_count=entry.comments.count %}
+      <span class="badge">
       - {{ comment_count }} {% trans "comment" %}{{ comment_count|pluralize }}
+      </span>
       {% endwith %}
     </li>
     {% empty %}
-    <li>
+    <li class="list-group-item">
       {% trans "No entries yet." %}
     </li>
     {% endfor %}
@@ -51,14 +55,14 @@
 <div class="categories">
   <h3>{% trans "Categories" %}</h3>
   {% for category, structure in categories|tree_info %}
-    {% if structure.new_level %}<ul><li>{% else %}</li><li>{% endif %}
+    {% if structure.new_level %}<ul class="list-group"><li class="list-group-item">{% else %}</li><li class="list-group-item">{% endif %}
       <a href="{{ category.get_absolute_url }}" title="{{ category.title }}">{{ category.title }}</a>
       -
-      {% blocktrans count entry_count=category.entries_published.count %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}
+      <span class="badge">{% blocktrans count entry_count=category.entries_published.count %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}</span>
     {% for level in structure.closed_levels %}</li></ul>{% endfor %}
     {% empty %}
-  <ul>
-    <li>
+  <ul class="list-group">
+    <li class="list-group-item">
       {% trans "No categories yet." %}
     </li>
   </ul>
