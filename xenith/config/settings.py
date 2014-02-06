@@ -15,6 +15,12 @@ from os.path import join
 
 from configurations import Configuration, values
 
+from zinnia.xmlrpc import ZINNIA_XMLRPC_METHODS
+XMLRPC_METHODS = ZINNIA_XMLRPC_METHODS
+
+#from zinnia.xmlrpc import ZINNIA_XMLRPC_PINGBACK
+#XMLRPC_METHODS = ZINNIA_XMLRPC_PINGBACK
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 def custom_show_toolbar(request):
@@ -33,6 +39,7 @@ class Common(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'django.contrib.syndication',
+        'django.contrib.sitemaps',
 
         # Useful template tags:
         'django.contrib.humanize',
@@ -45,14 +52,16 @@ class Common(Configuration):
         'crispy_forms',  # Form layouts
         'avatar',  # for user avatars
         'powerdns_manager',
-        'taggit',
-        'compressor'
+        'django_xmlrpc',
+        'tagging',
+        #'compressor',
+        'mptt',
+        'zinnia',
     )
 
     # Apps specific for this project go here.
     LOCAL_APPS = (
         'users',  # custom users app
-        'blog',
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -164,6 +173,7 @@ class Common(Configuration):
         'django.core.context_processors.tz',
         'django.contrib.messages.context_processors.messages',
         'django.core.context_processors.request',
+        'zinnia.context_processors.version',
         # Your stuff: custom template context processers go here
     )
 
@@ -183,27 +193,26 @@ class Common(Configuration):
 
     ########## STATIC FILE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-    STATIC_ROOT = join(BASE_DIR, 'static')
+    STATIC_ROOT = join(BASE_DIR, '../static')
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
     STATIC_URL = '/static/'
 
     # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-    # STATICFILES_DIRS = (
-    #     join(BASE_DIR, 'static'),
-    # )
+    STATICFILES_DIRS = (
+        join(BASE_DIR, 'static'),
+    )
 
     # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
     STATICFILES_FINDERS = (
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        'compressor.finders.CompressorFinder',
     )
     ########## END STATIC FILE CONFIGURATION
 
     ########## MEDIA CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-    MEDIA_ROOT = join(BASE_DIR, 'media')
+    MEDIA_ROOT = join(BASE_DIR, '../media')
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
     MEDIA_URL = '/media/'
@@ -284,6 +293,17 @@ class Common(Configuration):
     PDNS_DEFAULT_ZONE_TYPE = 'MASTER'
     PDNS_ALLOW_WILDCARD_NAMES = True
 
+    ZINNIA_MARKUP_LANGUAGE = 'markdown'
+    ZINNIA_COPYRIGHT = 'Justin Seabrook-Rocha'
+    ZINNIA_MARKDOWN_EXTENSIONS = 'md'
+    ZINNIA_UPLOAD_TO = 'media/zinnia'
+    ZINNIA_PROTOCOL = 'http'
+    ZINNIA_AUTO_MODERATE_COMMENTS = True
+    #ZINNIA_AUTO_CLOSE_COMMENTS_AFTER = 365
+    #ZINNIA_AUTO_CLOSE_PINGBACKS_AFTER = 365
+    #ZINNIA_AUTO_CLOSE_TRACKBACKS_AFTER = 365
+    ZINNIA_MAIL_COMMENT_AUTHORS = True
+
 
 class Local(Common):
 
@@ -307,7 +327,7 @@ class Local(Common):
         'INTERCEPT_REDIRECTS': False,
         'SHOW_TEMPLATE_CONTEXT': True,
         'ENABLE_STACKTRACES': True,
-        'INSERT_BEFORE': 'body',
+        #'INSERT_BEFORE': 'body',
         #'SHOW_TOOLBAR_CALLBACK': custom_show_toolbar,
     }
 

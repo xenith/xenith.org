@@ -1,0 +1,132 @@
+{% load i18n staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ LANGUAGE_CODE }}"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title>Xenith.org - {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
+    <meta name="robots" content="follow, all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="description" content="{% block meta-description %}{% trans 'Xenith.org Blog' %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}" />
+    <meta name="keywords" content="{% block meta-keywords %}networking, blog{% endblock meta-keywords %}" />
+    <meta name="author" content="Justin Seabrook-Rocha (Xenith)" />
+    {% block meta %}{% endblock meta %}
+    <link rel="pingback" href="/xmlrpc/" />
+    <link rel="shortcut icon" href="{% static 'zinnia/img/favicon.ico' %}" />
+    <link rel="home" href="{% url 'zinnia_entry_archive_index' %}" />
+    <link rel="canonical" href="http://xenith.org/">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'apple-touch-icon-144-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'apple-touch-icon-114-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'apple-touch-icon-72-precomposed.png' %}" />
+    <link rel="apple-touch-icon-precomposed" href="{% static 'apple-touch-icon-57-precomposed.png' %}" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" media="screen, projection" type="text/css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static 'zinnia/css/screen.css' %}" />
+    <link rel="stylesheet" type="text/css" media="print" href="{% static 'zinnia/css/print.css' %}" />
+    <!--<style type="text/css">
+      body {
+        padding-top: 70px;
+      }
+      body > nav img {
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+      p.entry-discussions {
+        margin-bottom: 0px;
+      }
+    </style>-->
+    <!--[if lt IE 8]>
+      <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static "zinnia/css/ie.css" %}" />
+    <![endif]-->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'js/libs/jquery-1.10.1.min.js' %}"><\/script>')</script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="{% static 'js/libs/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
+    {% block link %}{% endblock link %}
+    {% block script %}{% endblock script %}
+  </head>
+  <body class="zinnia {% block theme-class %}default{% endblock theme-class %} {% block color-class %}blue{% endblock color-class %} {% block sidebar-class %}right-sidebar{% endblock sidebar-class %} {% block body-class %}{% endblock body-class %}">
+    <div class="container">
+      <header id="header" role="banner">
+        <nav role="navigation">
+          <ul class="top-navigation">
+            <li>
+              <a href="{% url 'zinnia_sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">
+                {% trans "Sitemap" %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'zinnia_entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds">
+                {% trans "RSS Feed" %}
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <form method="get" action="{% url 'zinnia_entry_search' %}">
+          <p>
+            <input type="text" value="{% trans "Keywords..." %}" name="pattern" onfocus="this.value=''" />
+            <input type="submit" class="submitbutton" value="OK" />
+          </p>
+        </form>
+        <h1>
+          <a href="{% url 'zinnia_entry_archive_index' %}" title="Xenith.org Blog" rel="home">
+            Xenith.org Blog
+          </a>
+        </h1>
+        <blockquote>
+          <p>{% trans "More efficient than MTU9000." %}</p>
+        </blockquote>
+        {% block breadcrumbs %}{% endblock breadcrumbs %}
+      </header>
+      {% block slider %}{% endblock slider %}
+      <div id="content" class="hfeed" role="main">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        {% block content %}
+        <div class="links">
+          <h3>{% trans "Useful links" %}</h3>
+          <ul>
+            <li>
+              <a href="{% url 'zinnia_entry_archive_index' %}" title="{% trans "Weblog index" %}">
+                {% trans "Weblog index" %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'zinnia_sitemap' %}" title="{% trans "Sitemap" %}">
+                {% trans "Sitemap" %}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="search">
+          <h3>{% trans "Search" %}</h3>
+          {% include "zinnia/tags/search_form.html" %}
+        </div>
+        {% endblock content %}
+      </div>
+      <div id="sidebar" role="complementary">
+        {% block sidebar %}
+        {% endblock sidebar %}
+      </div>
+      <footer id="footer" role="contentinfo">
+        <p>Copyright &copy; 2013-2014 - Justin Seabrook-Rocha. {% blocktrans %}Powered by <a href="http://www.djangoproject.com">Django</a> and <a href="https://github.com/Fantomas42/django-blog-zinnia">Zinnia {{ ZINNIA_VERSION }}</a>.{% endblocktrans %}</p>
+      </footer>
+    </div>
+  </body>
+</html>

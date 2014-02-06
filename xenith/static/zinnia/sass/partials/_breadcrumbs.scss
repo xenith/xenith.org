@@ -1,0 +1,13 @@
+ul.breadcrumbs {
+  display: none;
+}
+
+@include breakpoint("small") {
+  ul.breadcrumbs {
+    display: block;
+    @include delimited-list("/");
+    margin: 0;
+    font-size: 1.2em;
+    background: transparent image-url("breadcrumb.png") no-repeat scroll left center;
+  }
+}
