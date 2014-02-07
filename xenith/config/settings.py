@@ -414,13 +414,13 @@ class Production(Common):
     ########## EMAIL
     DEFAULT_FROM_EMAIL = values.Value(
             'Xenith.org Webmaster <webmaster@xenith.org>')
-    #EMAIL_HOST = values.Value('smtp.sendgrid.com')
-    #EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="", environ_name="SENDGRID_PASSWORD")
-    #EMAIL_HOST_USER = values.SecretValue(environ_prefix="", environ_name="SENDGRID_USERNAME")
-    #EMAIL_PORT = values.IntegerValue(587, environ_prefix="", environ_name="EMAIL_PORT")
-    #EMAIL_SUBJECT_PREFIX = values.Value('[Xenith.org] ', environ_name="EMAIL_SUBJECT_PREFIX")
-    #EMAIL_USE_TLS = True
-    #SERVER_EMAIL = EMAIL_HOST_USER
+    EMAIL_HOST = values.Value('smtp.xenith.org')
+    EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="", environ_name="SMTP_PASSWORD")
+    EMAIL_HOST_USER = values.SecretValue(environ_prefix="", environ_name="SMTP_USERNAME")
+    EMAIL_PORT = values.IntegerValue(587, environ_prefix="", environ_name="EMAIL_PORT")
+    EMAIL_SUBJECT_PREFIX = values.Value('[Xenith.org] ', environ_name="EMAIL_SUBJECT_PREFIX")
+    EMAIL_USE_TLS = True
+    SERVER_EMAIL = EMAIL_HOST_USER
     ########## END EMAIL
 
     ########## TEMPLATE CONFIGURATION
