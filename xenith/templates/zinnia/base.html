@@ -23,18 +23,11 @@
 {% endblock breadcrumbs %}
 
 {% block sidebar %}
-<aside id="widget-welcome" class="widget panel panel-default">
+<aside id="widget-calendar" class="widget panel panel-default">
   <div class="panel-heading">
-    {% trans "Welcome!" %}
+    {% trans "Calendar" %}
   </div>
-  <div class="panel-body">
-    <p>
-      {% trans "This simple theme is the default appearance of Zinnia." %}
-    </p>
-    <p>
-      {% trans "Don't hesitate to override the template <strong>zinnia/base.html</strong> to start <a href='http://docs.django-blog-zinnia.com/en/latest/how-to/customize_look_and_feel.html'>customizing your Weblog</a>." %}
-    </p>
-  </div>
+  {% get_calendar_entries %}
 </aside>
 <aside id="widget-categories" class="widget panel panel-default">
   <div class="panel-heading">
@@ -42,53 +35,29 @@
   </div>
   {% get_categories %}
 </aside>
-<aside id="widget-authors" class="widget panel panel-default">
-  <div class="panel-heading">
-    {% trans "Authors" %}
-  </div>
-  {% get_authors %}
-</aside>
-<aside id="widget-calendar" class="widget panel panel-default">
-  <div class="panel-heading">
-    {% trans "Calendar" %}
-  </div>
-  {% get_calendar_entries %}
-</aside>
 <aside id="widget-tags" class="widget panel panel-default">
   <div class="panel-heading">
     {% trans "Tags" %}
   </div>
   {% get_tag_cloud %}
 </aside>
-<aside id="widget-recents" class="widget panel panel-default">
+<aside id="widget-populars" class="widget panel panel-default">
   <div class="panel-heading">
-    {% trans "Recent entries" %}
+    {% trans "Popular entries" %}
   </div>
-  {% get_recent_entries %}
+  {% get_popular_entries %}
 </aside>
-<aside id="widget-comments" class="widget panel panel-default">
+<aside id="widget-authors" class="widget panel panel-default">
   <div class="panel-heading">
-    {% trans "Recent comments" %}
+    {% trans "Authors" %}
   </div>
-  {% get_recent_comments %}
-</aside>
-<aside id="widget-linkbacks" class="widget panel panel-default">
-  <div class="panel-heading">
-    {% trans "Recent linkbacks" %}
-  </div>
-  {% get_recent_linkbacks %}
+  {% get_authors %}
 </aside>
 <aside id="widget-randoms" class="widget panel panel-default">
   <div class="panel-heading">
     {% trans "Random entries" %}
   </div>
   {% get_random_entries %}
-</aside>
-<aside id="widget-populars" class="widget panel panel-default">
-  <div class="panel-heading">
-    {% trans "Popular entries" %}
-  </div>
-  {% get_popular_entries %}
 </aside>
 <aside id="widget-archives" class="widget panel panel-default">
   <div class="panel-heading">
