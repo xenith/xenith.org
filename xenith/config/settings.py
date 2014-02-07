@@ -55,7 +55,6 @@ class Common(Configuration):
         'powerdns_manager',
         'django_xmlrpc',
         'tagging',
-        #'compressor',
         'mptt',
         'zinnia',
     )
@@ -414,30 +413,30 @@ class Production(Common):
 
     ########## EMAIL
     DEFAULT_FROM_EMAIL = values.Value(
-            'xenith-org <webmaster@xenith.org>')
-    EMAIL_HOST = values.Value('smtp.sendgrid.com')
-    EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="", environ_name="SENDGRID_PASSWORD")
-    EMAIL_HOST_USER = values.SecretValue(environ_prefix="", environ_name="SENDGRID_USERNAME")
-    EMAIL_PORT = values.IntegerValue(587, environ_prefix="", environ_name="EMAIL_PORT")
-    EMAIL_SUBJECT_PREFIX = values.Value('[xenith-org] ', environ_name="EMAIL_SUBJECT_PREFIX")
-    EMAIL_USE_TLS = True
-    SERVER_EMAIL = EMAIL_HOST_USER
+            'Xenith.org Webmaster <webmaster@xenith.org>')
+    #EMAIL_HOST = values.Value('smtp.sendgrid.com')
+    #EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="", environ_name="SENDGRID_PASSWORD")
+    #EMAIL_HOST_USER = values.SecretValue(environ_prefix="", environ_name="SENDGRID_USERNAME")
+    #EMAIL_PORT = values.IntegerValue(587, environ_prefix="", environ_name="EMAIL_PORT")
+    #EMAIL_SUBJECT_PREFIX = values.Value('[Xenith.org] ', environ_name="EMAIL_SUBJECT_PREFIX")
+    #EMAIL_USE_TLS = True
+    #SERVER_EMAIL = EMAIL_HOST_USER
     ########## END EMAIL
 
     ########## TEMPLATE CONFIGURATION
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
-    TEMPLATE_LOADERS = (
-        ('django.template.loaders.cached.Loader', (
-            'django.template.loaders.filesystem.Loader',
-            'django.template.loaders.app_directories.Loader',
-        )),
-    )
+    #TEMPLATE_LOADERS = (
+    #    ('django.template.loaders.cached.Loader', (
+    #        'django.template.loaders.filesystem.Loader',
+    #        'django.template.loaders.app_directories.Loader',
+    #    )),
+    #)
     ########## END TEMPLATE CONFIGURATION
 
     ########## CACHING
     # Only do this here because thanks to django-pylibmc-sasl and pylibmc memcacheify is painful to install on windows.
-    CACHES = values.CacheURLValue(default="memcached://127.0.0.1:11211")
+    #CACHES = values.CacheURLValue(default="memcached://127.0.0.1:11211")
     ########## END CACHING
 
     ########## Your production stuff: Below this line define 3rd party libary settings
