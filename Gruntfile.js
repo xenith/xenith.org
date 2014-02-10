@@ -15,13 +15,13 @@ module.exports = function (grunt) {
 
     return {
       app: this.app,
-      templates: 'templates',
-      css: 'static/css',
-      sass: 'static/sass',
-      fonts: 'static/fonts',
-      images: 'static/images',
-      js: 'static/js',
-      manageScript: 'manage.py'
+      templates: this.app + '/templates',
+      css: this.app + '/static/css',
+      sass: this.app + '/static/sass',
+      fonts: this.app + '/static/fonts',
+      images: this.app + '/static/images',
+      js: this.app + '/static/js',
+      manageScript: this.app + '/manage.py'
     }
   };
 
@@ -55,12 +55,14 @@ module.exports = function (grunt) {
     // see: https://github.com/gruntjs/grunt-contrib-compass
     compass: {
       options: {
-          sassDir: '<%= paths.sass %>',
-          cssDir: '<%= paths.css %>',
-          fontsDir: '<%= paths.fonts %>',
-          imagesDir: '<%= paths.images %>',
+          basePath: '<%= paths.app %>',
+          sassDir: 'static/sass',
+          cssDir: 'static/css',
+          fontsDir: 'static/fonts',
+          imagesDir: 'static/images',
           relativeAssets: false,
           assetCacheBuster: false,
+          outputStyle: 'compressed',
           raw: 'Sass::Script::Number.precision = 10\n'
       },
       dist: {

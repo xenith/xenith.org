@@ -125,7 +125,10 @@ class Common(Configuration):
 
     ########## DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('postgres://localhost/xenith.org')
+    # See: http://django-configurations.readthedocs.org/en/latest/values/#configurations.values.DatabaseURLValue
+    DATABASES = {}
+    DATABASES['default'] = values.DatabaseURLValue('postgres://localhost/xenith.org')
+    DATABASES['powerdns'] = values.DatabaseURLValue('postgres://localhost/powerdns', alias='powerdns', environ_name='POWERDNS_DATABASE_URL')
     ########## END DATABASE CONFIGURATION
 
     ########## CACHING
@@ -346,7 +349,7 @@ class Local(Common):
 
     ########## DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('sqlite:////Users/xenith/projects/xenith.org/db/development.sqlite3')
+    DATABASES = values.DatabaseURLValue('sqlite:///%s' % os.path.join(BASE_DIR, '../db/development.sqlite3'))
     ########## END DATABASE CONFIGURATION
 
     ########## Your local stuff: Below this line define 3rd party libary settings
