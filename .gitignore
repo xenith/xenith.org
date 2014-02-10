@@ -10,6 +10,7 @@ __pycache__
 *.sublime-workspace
 *.sqlite*
 media/*
+static/*
 
 # Logs
 *.log

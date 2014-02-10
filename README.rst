@@ -4,7 +4,19 @@ Xenith.org
 This is a description
 
 
-LICENSE: BSD
+This software is licensed under the `New BSD License`_. For more
+information, read the file ``LICENSE``.
+
+.. _New BSD License: http://opensource.org/licenses/BSD-3-Clause
+
+
+Prerequisites
+------------
+
+- Python 2.6 or 2.7
+- pip
+- virtualenv (virtualenvwrapper is recommended for use during development)
+
 
 Settings
 ------------
@@ -43,13 +55,14 @@ For getting this running on your local machine:
 
     pip install -r requirements/local.txt
 
-3. Install Grunt Dependencies.
-
-    npm install
-
-4. Install Ruby gems.
+3. Install Ruby gems.
 
     bundle install
+
+4. Install Grunt Dependencies.
+
+    cd xenith
+    npm install
 
 5. Run development server. (For browser auto-reload, use Livereload_ plugins.)
 
@@ -73,9 +86,6 @@ Run these commands to deploy the project to Heroku:
     heroku pg:promote HEROKU_POSTGRESQL_COLOR
     heroku config:set DJANGO_CONFIGURATION=Production
     heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY
-    heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_ID
-    heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_KEY
-    heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=BUCKET
     git push heroku master
     heroku run python xenith-org/manage.py syncdb --noinput --settings=config.settings
     heroku run python xenith-org/manage.py migrate --settings=config.settings
