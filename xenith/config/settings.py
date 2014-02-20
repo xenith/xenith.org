@@ -126,9 +126,22 @@ class Common(Configuration):
     ########## DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
     # See: http://django-configurations.readthedocs.org/en/latest/values/#configurations.values.DatabaseURLValue
-    DATABASES = {}
-    DATABASES['default'] = values.DatabaseURLValue('postgres://localhost/xenith.org')
-    DATABASES['powerdns'] = values.DatabaseURLValue('postgres://localhost/powerdns', alias='powerdns', environ_name='POWERDNS_DATABASE_URL')
+    DATABASES = {
+        'default': {
+            'NAME': 'xenith.org',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'HOST': '',
+            'USER': '',
+            'PASSWORD': ''
+        },
+        'powerdns': {
+            'NAME': 'powerdns',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'HOST': '',
+            'USER': '',
+            'PASSWORD': ''
+        }
+    }
     ########## END DATABASE CONFIGURATION
 
     ########## CACHING
@@ -296,6 +309,7 @@ class Common(Configuration):
     ########## Your common stuff: Below this line define 3rd party libary settings
     PDNS_DEFAULT_ZONE_TYPE = 'MASTER'
     PDNS_ALLOW_WILDCARD_NAMES = True
+    DATABASE_ROUTERS = ['powerdns_manager.routers.PowerdnsManagerDbRouter']
 
     ZINNIA_MARKUP_LANGUAGE = 'markdown'
     ZINNIA_COPYRIGHT = 'Justin Seabrook-Rocha'
@@ -349,7 +363,23 @@ class Local(Common):
 
     ########## DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('sqlite:///%s' % os.path.join(BASE_DIR, '../db/development.sqlite3'))
+    DATABASES = {
+        'default': {
+            'NAME': '%s' % os.path.join(BASE_DIR, '../db/development.sqlite3'),
+            'ENGINE': 'django.db.backends.sqlite3',
+            'HOST': '',
+            'USER': '',
+            'PASSWORD': ''
+        },
+        'powerdns': {
+            'NAME': '%s' % os.path.join(BASE_DIR, '../db/powerdns.sqlite3'),
+            'ENGINE': 'django.db.backends.sqlite3',
+            'HOST': '',
+            'USER': '',
+            'PASSWORD': ''
+        }
+    }
+    #DATABASES = values.DatabaseURLValue('sqlite:///%s' % os.path.join(BASE_DIR, '../db/development.sqlite3'))
     ########## END DATABASE CONFIGURATION
 
     ########## Your local stuff: Below this line define 3rd party libary settings
