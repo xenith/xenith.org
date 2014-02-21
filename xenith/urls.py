@@ -40,11 +40,11 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # User management
-    #url(r'^users/', include("users.urls", namespace="users")),
-    #url(r'^accounts/', include('allauth.urls')),
+    url(r'^users/', include("users.urls", namespace="users")),
+    url(r'^accounts/', include('allauth.urls')),
 
     # Uncomment the next line to enable avatars
-    #url(r'^avatar/', include('avatar.urls')),
+    url(r'^avatar/', include('avatar.urls')),
 
     # Simulate a 500 server error
     url(r'^bad/$', bad),

@@ -61,7 +61,7 @@ class Common(Configuration):
 
     # Apps specific for this project go here.
     LOCAL_APPS = (
-        #'users',  # custom users app
+        'users',  # custom users app
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -70,8 +70,8 @@ class Common(Configuration):
     INSTALLED_APPS += (
         # Needs to come last for now because of a weird edge case between
         #   South and allauth
-        #'allauth',  # registration
-        #'allauth.account',  # registration
+        'allauth',  # registration
+        'allauth.account',  # registration
         #'allauth.socialaccount',  # registration
     )
     ########## END APP CONFIGURATION
@@ -179,7 +179,7 @@ class Common(Configuration):
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
     TEMPLATE_CONTEXT_PROCESSORS = (
         'django.contrib.auth.context_processors.auth',
-        #'allauth.account.context_processors.account',
+        'allauth.account.context_processors.account',
         #'allauth.socialaccount.context_processors.socialaccount',
         'django.core.context_processors.debug',
         'django.core.context_processors.i18n',
@@ -246,25 +246,25 @@ class Common(Configuration):
     ########## AUTHENTICATION CONFIGURATION
     AUTHENTICATION_BACKENDS = (
         "django.contrib.auth.backends.ModelBackend",
-        #"allauth.account.auth_backends.AuthenticationBackend",
+        "allauth.account.auth_backends.AuthenticationBackend",
     )
 
     # Some really nice defaults
-    #ACCOUNT_AUTHENTICATION_METHOD = "username_email"
-    #ACCOUNT_AUTHENTICATION_METHOD = "username"
-    #ACCOUNT_EMAIL_REQUIRED = True
-    #ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-    #ACCOUNT_USERNAME_REQUIRED = True
-    #ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
-    #ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
-    #ACCOUNT_USERNAME_BLACKLIST = []
+    ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+    ACCOUNT_AUTHENTICATION_METHOD = "username"
+    ACCOUNT_EMAIL_REQUIRED = True
+    ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+    ACCOUNT_USERNAME_REQUIRED = True
+    ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
+    ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
+    ACCOUNT_USERNAME_BLACKLIST = []
     ########## END AUTHENTICATION CONFIGURATION
 
     ########## Custom user app defaults
     # Select the correct user model
-    #AUTH_USER_MODEL = "users.User"
-    #LOGIN_REDIRECT_URL = "users:redirect"
-    #LOGIN_URL = 'accounts:login'
+    AUTH_USER_MODEL = "users.User"
+    LOGIN_REDIRECT_URL = "users:redirect"
+    LOGIN_URL = 'accounts:login'
     ########## END Custom user app defaults
 
     ########## SLUGLIFIER
@@ -311,7 +311,7 @@ class Common(Configuration):
     PDNS_ALLOW_WILDCARD_NAMES = True
     DATABASE_ROUTERS = ['powerdns_manager.routers.PowerdnsManagerDbRouter']
 
-    ZINNIA_MARKUP_LANGUAGE = 'markdown'
+    ZINNIA_MARKUP_LANGUAGE = 'restructuredtext'
     ZINNIA_COPYRIGHT = 'Justin Seabrook-Rocha'
     ZINNIA_UPLOAD_TO = 'media/zinnia'
     ZINNIA_PROTOCOL = 'http'
