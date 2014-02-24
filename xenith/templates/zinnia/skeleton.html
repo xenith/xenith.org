@@ -1,6 +1,11 @@
 {% load i18n staticfiles %}
 
 <!DOCTYPE html>
+<!--
+  Striped 2.5 by HTML5 Up!
+  html5up.net | @n33co
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -25,8 +30,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'apple-touch-icon-72-precomposed.png' %}" />
   <link rel="apple-touch-icon-precomposed" href="{% static 'apple-touch-icon-57-precomposed.png' %}" />
 
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" media="screen, projection" type="text/css">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css" media="screen, projection" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans+Condensed:300,700" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" media="screen, projection" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}" media="screen, projection" type="text/css">
   <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static 'zinnia/css/screen.css' %}" />
   <link rel="stylesheet" type="text/css" media="print" href="{% static 'zinnia/css/print.css' %}" />
   <style type="text/css">
@@ -45,10 +51,8 @@
     <link rel="stylesheet" type="text/css" media="screen, projection" href="{% static "zinnia/css/ie.css" %}" />
   <![endif]-->
 
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{% static 'js/libs/jquery-1.11.0.min.js' %}"><\/script>')</script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="{% static 'js/libs/jquery-1.11.0.min.js' %}"></script>
+  <script src="{% static 'js/libs/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/libs/modernizr-2.7.1.min.js' %}"></script>
   {% block link %}{% endblock link %}
   {% block script %}{% endblock script %}

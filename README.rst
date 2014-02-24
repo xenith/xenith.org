@@ -24,6 +24,7 @@ Python 3 Compatability
 All internal code is compatable with Python 3. Libraries that don't yet work with Python 3:
 
 - django-powerdns-manager
+- django-tagging
 
 
 Settings
