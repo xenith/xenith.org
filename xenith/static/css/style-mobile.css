@@ -1,5 +1,5 @@
 /*
-	Striped 2.5 by HTML5 Up!
+	TXT 2.5 by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -8,204 +8,244 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
-	body, input, textarea
+	body
 	{
 		line-height: 1.75em;
-		font-size: 11pt;
+		font-size: 10pt;
 		letter-spacing: 0;
 	}
 
 	h2, h3, h4, h5, h6
 	{
 		font-size: 1.5em;
+		margin: 0 0 0.5em 0;
+	}
+
+	h2.major
+	{
+		text-align: left;
+		margin: 0.775em 0 0.75em 0;
+	}
+
+		h2.major span
+		{
+			top: -0.775em;
+			padding: 0 1em 0 0;
+		}
+
+	h3
+	{
+		font-size: 1.25em;
 	}
 
 	section,
 	article
 	{
 		clear: both;
+		margin: 0 0 2.5em 0 !important;
+	}
+	
+	.byline
+	{
+		font-size: 1.5em;
+		line-height: 1.5em;
 	}
 
 	.button
 	{
-		display: block;
+		font-size: 1.5em;
 		width: 100%;
-		font-size: 1.25em;
 		padding: 0.75em 0 0.75em 0;
-		margin: 0.5em 0 0.5em 0;
+		margin-top: 0.5em;
+		text-align: center;
 	}
 
-	.pager
+	ul.special
 	{
 	}
+	
+		ul.special li
+		{
+			margin: 0.1em;
+		}
 
-		.pager .pages
+			ul.special li:hover
+			{
+				top: 0;
+			}
+
+			ul.special a
+			{
+				width: 9.5em;
+				height: 9.5em;
+				border-radius: 4.75em;
+			}
+			
+				ul.special a:before
+				{
+					font-size: 64px;
+				}
+
+	ul.contact
+	{
+	}
+	
+		ul.contact li
+		{
+			margin: 0 0.15em 0.35em 0;
+			top: 0 !important;
+		}
+
+/*********************************************************************************/
+/* Section + Article Types                                                       */
+/*********************************************************************************/
+
+	.is-highlight
+	{
+	}
+	
+		.is-highlight .special
+		{
+		}
+
+		.is-highlight h2
+		{
+			font-size: 2.25em;
+			line-height: 1.25em;
+			margin: 0 0 0.5em 0;
+		}
+
+		.is-highlight .byline
+		{
+			margin: 0 0 0.75em 0;
+		}
+		
+		.is-highlight br
 		{
 			display: none;
 		}
 
-/*********************************************************************************/
-/* Title Bar                                                                     */
-/*********************************************************************************/
-
-	#titleBar
+	.is-post-summary
 	{
-		background: #364050 url('images/bg1.png');
+		margin: 0 !important;
 	}
-
-	#titleBar .title
-	{
-		color: #fff;
-		line-height: 44px;
-		font-size: 1.25em;
-		font-family: 'Open Sans Condensed', sans-serif;
-		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
-		box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.25);
-		text-align: center;
-	}
-
-	#titleBar .toggle
-	{
-		text-indent: -9999px;
-		width: 80px;
-		height: 60px;
-		position: absolute;
-		left: 0;
-		top: 0;
-	}
-
-		#titleBar .toggle:before
+	
+		.is-post-summary h3
 		{
-			content: '';
-			display: block;
-			position: absolute;
-			left: 7px;
-			top: 7px;
-			width: 50px;
-			height: 30px;
-			background: #c94663 url('images/bg1.png');
-			border-radius: 5px;
-			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
+			font-size: 1.25em;
 		}
-
-		#titleBar .toggle:after
-		{
-			content: '';
-			display: block;
-			position: absolute;
-			left: 22px;
-			top: 15px;
-			width: 50px;
-			height: 30px;
-			background: url('images/mobileUI-site-nav-opener-bg.svg') 0 0 no-repeat;
-			opacity: 0.75;
-		}
-
-		#titleBar .toggle:active
-		{
-		}
-
-			#titleBar .toggle:active:before
-			{
-				background-color: #d95673;
-			}
-
-			#titleBar .toggle:active:after
-			{
-				opacity: 1.0;
-			}
-
-/*********************************************************************************/
-/* Side Panel                                                                    */
-/*********************************************************************************/
-
-	#sidePanel
-	{
-		background: #28303a url('images/bg1.png');
-	}
-
-/*********************************************************************************/
-/* Section/Article Types                                                         */
-/*********************************************************************************/
 
 	.is-post
 	{
-		padding-bottom: 5em;
-		margin-bottom: 6em;
 	}
+
+		.is-post h3
+		{
+			font-size: 2.25em;
+			line-height: 1.25em;
+			margin: 0 0 0.5em 0;
+		}
 
 		.is-post .byline
 		{
-			font-size: 1em;
-			font-family: 'Source Sans Pro', sans-serif;
-			line-height: 1.5em;
+			margin: 0 0 0.75em 0;
 		}
-
-		.is-post .info
+		
+		.is-post ul.meta
 		{
-			width: 100%;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			border-top: solid 1px #ddd;
-			padding-top: 0.5em;
+			margin: 0 0 0.5em 0;
 		}
 
-			.is-post .info .date
-			{
-				display: inline;
-			}
-			
-				.is-post .info .date .year
-				{
-					display: none;
-				}
-				
-				.is-post .info .date .month span
-				{
-					display: none;
-				}
+		.is-post header
+		{
+			margin: 0 0 3em 0;
+		}
 
-			.is-post .info .stats
-			{
-				display: inline;
-				border-left: solid 1px #ddd;
-				margin-left: 0.75em;
-				padding-left: 0.75em;
-			}
+	.is-page-content
+	{
+	}
 
-				.is-post .info .stats li
-				{
-					display: inline-block;
-					margin-right: 0.85em;
-				}
+		.is-page-content h2
+		{
+			font-size: 2.25em;
+			line-height: 1.25em;
+			margin: 0 0 0.5em 0;
+		}
 
-					.is-post .info .stats li a
-					{
-						display: inline-block;
-						opacity: 0.5;
-					}
+		.is-page-content .byline
+		{
+			margin: 0 0 0.75em 0;
+		}
+		
+		.is-page-content ul.meta
+		{
+			margin: 0 0 0.5em 0;
+		}
 
-						.is-post .info .stats li a:before
-						{
-							position: relative;
-							top: 0.1em;
-							margin-right: 0.5em;
-							opacity: 0.35;
-						}
-
-						.is-post .info .stats li a:active
-						{
-							opacity: 1.0;
-						}
+		.is-page-content header
+		{
+			margin: 0 0 3em 0;
+		}
 
 /*********************************************************************************/
-/* Logo                                                                          */
+/* Sidebar + Content                                                             */
 /*********************************************************************************/
 
-	#logo
+	.sidebar
+	{
+		border-top: solid 2px #e7eae8;
+		padding-top: 5em;
+		margin-top: 5em;
+
+		border-bottom: solid 2px #e7eae8;
+		padding-bottom: 5em;
+	}
+	
+		.sidebar > section
+		{
+			margin: 0 0 5em 0 !important;
+		}
+	
+		.sidebar > section:last-child
+		{
+			margin: 0 !important;
+		}
+	
+	.content
+	{
+		padding-top: 3em;
+	}
+
+		.homepage .content
+		{
+			padding-top: 0;
+		}
+
+/*********************************************************************************/
+/* Wrappers                                                                      */
+/*********************************************************************************/
+
+	#banner-wrapper
+	{
+		padding: 12em 0 8em 0;
+	}
+	
+	#main-wrapper
+	{
+		border-top-width: 0px;
+		border-bottom-width: 5px;
+	}
+
+		.homepage #main-wrapper
+		{
+			border-top-width: 15px;
+		}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#header
 	{
 		display: none;
 	}
@@ -216,58 +256,156 @@
 
 	#nav
 	{
-		margin-top: 0 !important;
-	}
-
-		#nav:before
-		{
-			display: none !important;
-		}
-		
-		#nav li:hover a
-		{
-			background: none;
-		}
-
-/*********************************************************************************/
-/* Content                                                                       */
-/*********************************************************************************/
-		
-	#content
-	{
-		margin-top: 44px;
-		padding: 3em 20px 2em 20px;
+		display: none;
 	}
 
 /*********************************************************************************/
-/* Sidebar                                                                       */
+/* Banner                                                                        */
 /*********************************************************************************/
 
-	#sidebar
+	#banner
 	{
-		padding: 20px 12px 20px 10px;
-		background: #364050 url('images/bg1.png');
-		box-shadow: inset -1px 0 0 0 rgba(255,255,255,0.15), inset -0.1em 0 0.5em 0 rgba(0,0,0,0.25);
+		padding: 3em 20px 3em 20px;
+		margin: 0 !important;
+	}
+
+		#banner h2
+		{
+			font-size: 2.25em;
+			line-height: 1.25em;
+			margin: 0 0 0.5em 0;
+		}
+
+		#banner .byline
+		{
+			margin: 0 0 0.5em 0;
+		}
+
+/*********************************************************************************/
+/* Main                                                                          */
+/*********************************************************************************/
+
+	#main
+	{
+		padding: 1em 20px 1em 20px;
+	}
+
+		#main > .row
+		{
+			padding: 2em 0 2em 0;
+		}
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer
+	{
+		padding: 4em 20px 2em 20px;
 	}
 	
+		#footer > .row
+		{
+			padding: 1em 0 1em 0;
+		}
+
 /*********************************************************************************/
-/* Copyright                                                                     */
+/* Mobile UI                                                                     */
 /*********************************************************************************/
 
-	#copyright
+	#titleBar
 	{
-		margin: 2em 0 0 0;
-		text-align: center;
+		background: rgba(21, 38, 23, 0.8);
 	}
 
-		#copyright p
+		#titleBar:after
 		{
-			font-size: 0.9em;
-			line-height: 2em;
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: url('/static/images/overlay.png');
+			opacity: 0.15;
 		}
-	
-		#copyright:before
+
+		#titleBar .title
 		{
-			height: 0.5em;
-			margin: 0 0 2em 0;
+			display: block;
+			position: relative;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 1.25em;
+			line-height: 44px;
+			color: #fff;
+			z-index: 1000;
+			text-align: center;
+		}
+
+		#titleBar .toggle
+		{
+			position: absolute;
+			left: 0;
+			top: 0;
+			text-indent: -9999px;
+			background: #e3daa8 url('/static/images/mobileUI-site-nav-opener-bg.svg') 8px 14px no-repeat;
+			width: 44px;
+			height: 44px;
+			z-index: 1001;
+		}
+
+			#titleBar .toggle:active
+			{
+				background-color: #ebe3b2;
+			}
+
+	#navPanel
+	{
+		background: -moz-linear-gradient(top, #252c27, #000);
+		background: -webkit-linear-gradient(top, #252c27, #000);
+		background: -o-linear-gradient(top, #252c27, #000);
+		background: -ms-linear-gradient(top, #252c27, #000);
+		background: linear-gradient(top, #252c27, #000);
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: 1.25em;
+		box-shadow: inset -3px 0px 10px 0px rgba(0,0,0,0.25);
+	}
+
+		#navPanel nav
+		{
+			position: relative;
+			z-index: 1000;
+		}
+
+		#navPanel:after
+		{
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: url('/static/images/overlay.png');
+			opacity: 0.25;
+		}
+
+		#navPanel .link
+		{
+			display: block;
+			color: inherit;
+			text-decoration: none;
+			height: 44px;
+			line-height: 44px;
+			padding: 0 1em 0 1em;
+			color: #fff;
+			border-top: solid 2px rgba(87, 93, 89, 0.15);
+		}
+		
+		#navPanel .link:first-child
+		{
+			border-top: 0;
 		}
