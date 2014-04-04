@@ -50,7 +50,7 @@ def install_dependencies():
     ensure_virtualenv()
     with virtualenv(env.virtualenv):
         with cd(env.code_dir):
-            run_venv("pip install -r requirements.txt")
+            run_venv("pip install --upgrade -r requirements.txt")
 
 
 def ensure_virtualenv():

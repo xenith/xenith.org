@@ -16,9 +16,6 @@ from zinnia.sitemaps import AuthorSitemap
 from django.contrib import admin
 admin.autodiscover()
 
-handler500 = 'django.views.defaults.server_error'
-handler404 = 'django.views.defaults.page_not_found'
-handler403 = 'django.views.defaults.permission_denied'
 
 def bad(request):
     """ Simulates a server error """
@@ -26,13 +23,19 @@ def bad(request):
 
 
 urlpatterns = patterns('',
-    url(r'^$', RedirectView.as_view(url='/blog/'), name="home"),
-    #url(r'^$',
-    #    TemplateView.as_view(template_name='pages/home.html'),
-    #    name="home"),
+    #url(r'^$', RedirectView.as_view(url='/blog/'), name="home"),
+    url(r'^$',
+        TemplateView.as_view(template_name='pages/home.html'),
+        name="home"),
     url(r'^about/$',
         TemplateView.as_view(template_name='pages/about.html'),
         name="about"),
+    url(r'^contact/$',
+        TemplateView.as_view(template_name='pages/contact.html'),
+        name="contact"),
+    url(r'^calendar/$',
+        TemplateView.as_view(template_name='pages/calendar.html'),
+        name="calendar"),
 
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
@@ -73,6 +76,7 @@ urlpatterns += patterns(
 
 urlpatterns += patterns(
     '',
+    url(r'^400/$', 'django.views.defaults.bad_request'),
     url(r'^403/$', 'django.views.defaults.permission_denied'),
     url(r'^404/$', 'django.views.defaults.page_not_found'),
     url(r'^500/$', 'django.views.defaults.server_error'),

@@ -1,0 +1,124 @@
+{% load i18n staticfiles %}
+
+<!DOCTYPE html>
+<!--
+  TXT 2.5 by HTML5 UP
+  html5up.net | @n33co
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ LANGUAGE_CODE }}"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Xenith.org - {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
+  <meta name="robots" content="follow, all" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="description" content="{% block meta-description %}{% trans 'Xenith.org Blog' %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}" />
+  <meta name="keywords" content="{% block meta-keywords %}networking, blog{% endblock meta-keywords %}" />
+  <meta name="author" content="Justin Seabrook-Rocha (Xenith)" />
+  {% block meta %}{% endblock meta %}
+
+  <link rel="pingback" href="/xmlrpc/" />
+  <link rel="shortcut icon" href="{% static 'zinnia/img/favicon.ico' %}" />
+  <link rel="home" href="{% url 'zinnia_entry_archive_index' %}" />
+  <link rel="canonical" href="http://xenith.org/">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'apple-touch-icon-144-precomposed.png' %}" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'apple-touch-icon-114-precomposed.png' %}" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'apple-touch-icon-72-precomposed.png' %}" />
+  <link rel="apple-touch-icon-precomposed" href="{% static 'apple-touch-icon-57-precomposed.png' %}" />
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
+  {% block link %}{% endblock link %}
+
+  <script src="{% static 'js/libs/jquery-1.11.0.min.js' %}"></script>
+  <script src="{% static 'js/libs/modernizr-2.7.1.min.js' %}"></script>
+  <script src="{% static 'js/config.js' %}"></script>
+  <script src="{% static 'js/skel.min.js' %}"></script>
+  <script src="{% static 'js/skel-panels.min.js' %}"></script>
+  {% block script %}{% endblock script %}
+
+  <noscript>
+    <link rel="stylesheet" href="{% static 'css/skel-noscript.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style-desktop.css' %}" />
+  </noscript>
+  <!--<link rel="stylesheet" type="text/css" media="screen, projection" href="{% static 'css/screen.css' %}" />-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+  <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+</head>
+<body class="{% block body-class %}{% endblock body-class %}">
+
+  <!-- Header -->
+    <header id="header">
+      <div class="logo">
+        <div>
+          <h1><a href="/" id="logo">Xenith.org</a></h1>
+          <span class="byline">Peering for <span style="text-decoration: line-through;">Evil</span> Good</span>
+        </div>
+      </div>
+    </header>
+  <!-- /Header -->
+
+  <!-- Nav -->
+    <nav id="nav" class="skel-panels-fixed">
+      <ul>
+        <li {% block menu_home_highlight %}{% endblock %}><a href="/">Home</a></li>
+        <li {% block menu_blog_highlight %}{% endblock %}><a href="/blog">Blog</a></li>
+        <li {% block menu_about_highlight %}{% endblock %}><a href="/about">About</a></li>
+        <li {% block menu_calendar_highlight %}{% endblock %}><a href="/calendar">Calendar</a></li>
+        <li {% block menu_contact_highlight %}{% endblock %}><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  <!-- /Nav -->
+
+{% block page %}{% endblock %}
+
+  <!-- Footer -->
+    <footer id="footer" class="container">
+      <div class="row">
+        <div class="12u">
+
+          <!-- About -->
+            <section>
+              <h2 class="major"><span>What's this about?</span></h2>
+              <p>
+                Network Architect/Engineer spouting off about IPv6, network design, security, and peering.
+              </p>
+            </section>
+          <!-- /About -->
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="12u">
+
+          <!-- Contact -->
+            <section>
+              <h2 class="major"><span>Get in touch</span></h2>
+              <ul class="contact">
+                <li><a class="fa fa-facebook solo" href="https://www.facebook.com/xenith.org"><span>Facebook</span></a></li>
+                <li><a class="fa fa-twitter solo" href="https://twitter.com/xenith"><span>Twitter</span></a></li>
+                <li><a class="fa fa-linkedin solo" href="https://www.linkedin.com/in/xenith"><span>LinkedIn</span></a></li>
+                <li><a class="fa fa-google-plus solo" href="https://plus.google.com/+JustinSeabrookRocha"><span>Google+</span></a></li>
+                <li><a class="fa fa-rss solo" href="http://xenith.org/blog/feeds/"><span>RSS</span></a></li>
+              </ul>
+            </section>
+          <!-- /Contact -->
+
+        </div>
+      </div>
+
+      <!-- Copyright -->
+        <div id="copyright">
+          &copy; Justin Seabrook-Rocha | Images: <a href="http://fotogrph.com">fotogrph</a> | Design: <a href="http://html5up.net/">HTML5 UP</a> | {% blocktrans %}Powered by <a href="http://www.djangoproject.com">Django</a> and <a href="https://github.com/Fantomas42/django-blog-zinnia">Zinnia {{ ZINNIA_VERSION }}</a>{% endblocktrans %}
+        </div>
+      <!-- /Copyright -->
+
+    </footer>
+  <!-- /Footer -->
+
+</body>
+</html>

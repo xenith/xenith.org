@@ -13,7 +13,7 @@
     {% endif %}
 
     {% for page_number in begin %}
-    <li class="page {% ifequal page.number page_number %}current{% endifequal %}">
+    <li class="page{% ifequal page.number page_number %} current{% endifequal %}">
       {% ifequal page.number page_number %}
       <a href="#">{{ page_number }}</a>
       {% else %}
@@ -28,7 +28,7 @@
       <a href="#">&hellip;</a>
     </li>
     {% for page_number in middle %}
-    <li class="page {% ifequal page.number page_number %}current{% endifequal %}">
+    <li class="page{% ifequal page.number page_number %} current{% endifequal %}">
       {% ifequal page.number page_number %}
       <a href="#">{{ page_number }}</a>
       {% else %}
@@ -44,7 +44,7 @@
       <a href="#">&hellip;</a>
     </li>
     {% for page_number in end %}
-    <li class="page {% ifequal page.number page_number %}current{% endifequal %}">
+    <li class="page{% ifequal page.number page_number %} current{% endifequal %}">
       {% ifequal page.number page_number %}
       <a href="#">{{ page_number }}</a>
       {% else %}

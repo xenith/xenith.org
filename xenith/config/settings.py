@@ -233,7 +233,7 @@ class Common(Configuration):
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
     MEDIA_URL = '/media/'
 
-    FILE_UPLOAD_PERMISSIONS = 0664
+    FILE_UPLOAD_PERMISSIONS = 0o0664
     ########## END MEDIA CONFIGURATION
 
     ########## URL Configuration
@@ -386,6 +386,9 @@ class Local(Common):
 
 
 class Production(Common):
+
+    DEBUG = False
+    TEMPLATE_DEBUG = False
 
     ########## INSTALLED_APPS
     INSTALLED_APPS = Common.INSTALLED_APPS
