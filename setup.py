@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 #!/usr/bin/env python
 
 import os
@@ -10,12 +10,9 @@ try:
 except ImportError:
     from distutils.core import setup
 
-import xenith
-version = xenith.__version__
-
 setup(
     name='xenith.org',
-    version=version,
+    version='0.0.1',
     author='',
     author_email='xenith@xenith.org',
     packages=[

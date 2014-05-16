@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 # Python3 compatability
 from __future__ import unicode_literals
 from django.utils.encoding import python_2_unicode_compatible

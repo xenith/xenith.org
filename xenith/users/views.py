@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 # Import the reverse lookup function
 from django.core.urlresolvers import reverse
 

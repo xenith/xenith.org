@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 from __future__ import unicode_literals
 
 from django.conf import settings
@@ -12,9 +12,17 @@ from zinnia.sitemaps import EntrySitemap
 from zinnia.sitemaps import CategorySitemap
 from zinnia.sitemaps import AuthorSitemap
 
-# Uncomment the next two lines to enable the admin:
+# Enable the admin app
 from django.contrib import admin
 admin.autodiscover()
+
+
+sitemaps = {
+    'tags': TagSitemap,
+    'blog': EntrySitemap,
+    'authors': AuthorSitemap,
+    'categories': CategorySitemap
+}
 
 
 def bad(request):
@@ -23,7 +31,10 @@ def bad(request):
 
 
 urlpatterns = patterns('',
+    # Redirect the home page to the blog
     #url(r'^$', RedirectView.as_view(url='/blog/'), name="home"),
+
+    # Single-page template views
     url(r'^$',
         TemplateView.as_view(template_name='pages/home.html'),
         name="home"),
@@ -36,35 +47,30 @@ urlpatterns = patterns('',
     url(r'^calendar/$',
         TemplateView.as_view(template_name='pages/calendar.html'),
         name="calendar"),
+    url(r'^bookshelf/$',
+        TemplateView.as_view(template_name='pages/bookshelf.html'),
+        name="bookshelf"),
 
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
     # User management
     url(r'^users/', include("users.urls", namespace="users")),
     url(r'^accounts/', include('allauth.urls')),
-
-    # Uncomment the next line to enable avatars
     url(r'^avatar/', include('avatar.urls')),
+
+    # This is so we can manage our PowerDNS server from within the admin app
+    url(r'^powerdns/', include('powerdns_manager.urls')),
+
+    # URLs for the blog
+    url(r'^blog/', include('zinnia.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
+    url(r'^xmlrpc/$', 'django_xmlrpc.views.handle_xmlrpc', name='xmlrpc'),
 
     # Simulate a 500 server error
     url(r'^bad/$', bad),
-
-    # Your stuff: custom urls go here
-    url(r'^blog/', include('zinnia.urls')),
-    url(r'^comments/', include('django.contrib.comments.urls')),
-    url(r'^powerdns/', include('powerdns_manager.urls')),
-    url(r'^xmlrpc/$', 'django_xmlrpc.views.handle_xmlrpc', name='xmlrpc'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-sitemaps = {
-    'tags': TagSitemap,
-    'blog': EntrySitemap,
-    'authors': AuthorSitemap,
-    'categories': CategorySitemap
-}
 
 urlpatterns += patterns(
     'django.contrib.sitemaps.views',

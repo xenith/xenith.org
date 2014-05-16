@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -- coding: utf-8 --
 """
 Django settings for xenith.org project.
 
@@ -342,6 +342,9 @@ class Local(Common):
 
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS': False,
+        'DISABLE_PANELS': [
+            'debug_toolbar.panels.redirects.RedirectsPanel',
+        ],
         'SHOW_TEMPLATE_CONTEXT': True,
         'ENABLE_STACKTRACES': True,
         #'INSERT_BEFORE': 'body',

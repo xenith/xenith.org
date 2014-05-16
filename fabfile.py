@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 """
 Starter fabfile for deploying the xenith project.
 
