@@ -10,7 +10,7 @@ dj-database-url==0.3.0
 # Forms
 django-braces==1.4.0
 django-crispy-forms==1.4.0
-django-floppyforms==1.1.1
+django-floppyforms==1.2.0
 
 # Models
 South==0.8.4
@@ -37,10 +37,10 @@ django-avatar==2.0
 django-blog-zinnia==0.14.1
 
 # Your custom requirements go here
-#django-taggit==0.11.2
+#django-taggit==0.12
 dnspython==1.11.1
 django-powerdns-manager>=0.1.35a1
-Markdown==2.4
+Markdown==2.4.1
 docutils==0.11
 bcrypt==1.0.2
 django-xmlrpc==0.1.5

@@ -20,7 +20,7 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-        'Django>=1.6.1',
+        'Django>=1.6.5',
     ],
     zip_safe=False,
     scripts=['xenith/manage.py'],

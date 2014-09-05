@@ -32,22 +32,22 @@ def bad(request):
 
 urlpatterns = patterns('',
     # Redirect the home page to the blog
-    #url(r'^$', RedirectView.as_view(url='/blog/'), name="home"),
+    url(r'^$', RedirectView.as_view(url='/blog/'), name="home"),
 
     # Single-page template views
-    url(r'^$',
+    url(r'^$', # noqa
         TemplateView.as_view(template_name='pages/home.html'),
         name="home"),
-    url(r'^about/$',
+    url(r'^about/$', # noqa
         TemplateView.as_view(template_name='pages/about.html'),
         name="about"),
-    url(r'^contact/$',
+    url(r'^contact/$', # noqa
         TemplateView.as_view(template_name='pages/contact.html'),
         name="contact"),
-    url(r'^calendar/$',
+    url(r'^calendar/$', # noqa
         TemplateView.as_view(template_name='pages/calendar.html'),
         name="calendar"),
-    url(r'^bookshelf/$',
+    url(r'^bookshelf/$', # noqa
         TemplateView.as_view(template_name='pages/bookshelf.html'),
         name="bookshelf"),
 
@@ -56,9 +56,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # User management
-    url(r'^users/', include("users.urls", namespace="users")),
-    url(r'^accounts/', include('allauth.urls')),
-    url(r'^avatar/', include('avatar.urls')),
+    #url(r'^users/', include("users.urls", namespace="users")),
+    #url(r'^accounts/', include('allauth.urls')),
+    #url(r'^avatar/', include('avatar.urls')),
 
     # This is so we can manage our PowerDNS server from within the admin app
     url(r'^powerdns/', include('powerdns_manager.urls')),
