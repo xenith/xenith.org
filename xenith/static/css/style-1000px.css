@@ -1,5 +1,5 @@
 /*
-	TXT 2.5 by HTML5 UP
+	TXT by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -8,9 +8,8 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
-	body
+	body,input,textarea,select
 	{
-		min-width: 960px;
 		font-size: 10.25pt;
 		line-height: 1.75em;
 	}
@@ -24,11 +23,6 @@
 		{
 			top: -0.75em;
 			padding: 0 1em 0 1em;
-		}
-
-		#footer-wrapper h2.major
-		{
-			margin: 0 0 1em 0;
 		}
 
 /*********************************************************************************/
@@ -52,7 +46,7 @@
 
 	#header
 	{
-		padding: 5em 0 2em 0;
+		padding: 4em 0 1em 0;
 	}
 
 /*********************************************************************************/
@@ -61,17 +55,17 @@
 
 	#banner
 	{
-		padding: 4em 0 3.5em 0;
+		padding: 3.5em 0 3em 0;
 	}
 
 		#banner h2
 		{
-			margin: 0 0 0.5em 0;
+			margin: 0 0 0.65em 0;
 		}
 		
-		#banner .byline
+		#banner p
 		{
-			margin: 0 0 1.5em 0;
+			margin: 0 0 1em 0;
 		}
 
 /*********************************************************************************/
@@ -102,6 +96,11 @@
 		{
 			padding: 2em 0 2em 0;
 		}
+
+	#footer-wrapper h2.major
+	{
+		margin: 0 0 1em 0;
+	}
 
 /*********************************************************************************/
 /* Copyright                                                                     */

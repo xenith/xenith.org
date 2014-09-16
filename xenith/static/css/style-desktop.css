@@ -1,5 +1,5 @@
 /*
-	TXT 2.5 by HTML5 UP
+	TXT by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -8,12 +8,7 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
-	body
-	{
-		min-width: 1200px;
-	}
-
-	h1, h2, h3, h4, h5, h6, h7
+	h1, h2, h3, h4, h5, h6
 	{
 		margin: 0 0 0.5em 0;
 	}
@@ -36,22 +31,6 @@
 				padding: 0 1.5em 0 1.5em;
 			}
 
-			#footer h2.major
-			{
-				margin: 0 0 1em 0;
-			}
-			
-			.sidebar h2.major
-			{
-				text-align: left;
-				margin: 0 0 1em 0;
-			}
-			
-				.sidebar h2.major span
-				{
-					padding-left: 0;
-				}
-
 	h3
 	{
 		font-size: 1.25em;
@@ -62,126 +41,137 @@
 		font-size: 1.25em;
 	}
 
-	.button
-	{
-		font-size: 1.25em;
-		padding: 0.85em 1.85em 0.85em 1.85em;
-	}
-
-	.button-big
-	{
-		font-size: 1.65em;
-		padding: 0.85em 1.85em 0.85em 1.85em;
-	}
+	/* Button */
 	
-	.actions
-	{
-		text-align: center;
-		margin: 2em 0 0 0;
-	}
+		input[type="button"],
+		input[type="submit"],
+		input[type="reset"],
+		.button
+		{
+			font-size: 1.25em;
+			padding: 0.85em 1.85em;
+		}
+
+			input[type="button"].big,
+			input[type="submit"].big,
+			input[type="reset"].big,
+			.button.big
+			{
+				font-size: 1.65em;
+				padding: 0.85em 1.85em;
+			}
 	
-		.actions .button
+	/* List */
+
+		ul
 		{
-			margin: 0 0.5em 0 0.5em;
-		}
-
-/*********************************************************************************/
-/* Section + Article Types                                                       */
-/*********************************************************************************/
-
-	.is-highlight
-	{
-	}
+		}	
 	
-		.is-highlight .special
-		{
-			margin: 0 0 4em 0;
-		}
-
-		.is-highlight h2
-		{
-			font-size: 3em;
-			margin: 0 0 0.75em 0;
-		}
-
-		.is-highlight .byline
-		{
-			font-size: 1.65em;
-			margin: 0 0 1.5em 0;
-		}
-
-	.is-feature
-	{
-		text-align: center;
-	}
+			ul.actions
+			{
+				text-align: center;
+				margin: 2em 0 0 0;
+			}
 	
-	.is-post
-	{
-	}
+	/* Box */
 
-		.is-post header
+		.box
 		{
-			margin: 0 0 2.5em 0;
 		}
 
-		.is-post h3
-		{
-			font-size: 3em;
-			margin: 0 0 0.5em 0;
-		}
+			.box.highlight
+			{
+			}
+			
+				.box.highlight .special
+				{
+					margin: 0 0 4em 0;
+				}
 
-		.is-post .byline
-		{
-			font-size: 1.65em;
-			margin: 0 0 0.5em 0;
-		}
+				.box.highlight h2
+				{
+					font-size: 3em;
+					margin: 0 0 0.75em 0;
+				}
 
-		.is-post ul.meta
-		{
-			margin: 0 0 0.5em 0;
-		}
-	
-	.is-post-summary
-	{
-	}
-	
-		.is-post-summary h3
-		{
-			line-height: 1em;
-			margin: 0 0 0.75em 0;
-		}
+				.box.highlight header > p
+				{
+					font-size: 1.65em;
+					margin: 0 0 1.5em 0;
+				}
 
-		.is-post-summary .meta
-		{
-			margin: 0;
-			line-height: 1em;
-		}
+			.box.feature
+			{
+				text-align: center;
+			}
+			
+			.box.post
+			{
+			}
 
-	.is-page-content
-	{
-	}
+				.box.post header
+				{
+					margin: 0 0 2.5em 0;
+				}
 
-		.is-page-content header
-		{
-			margin: 0 0 2.5em 0;
-		}
+				.box.post h3
+				{
+					font-size: 3em;
+					margin: 0 0 0.5em 0;
+				}
 
-		.is-page-content h2
-		{
-			font-size: 3em;
-			margin: 0 0 0.5em 0;
-		}
+				.box.post header > p
+				{
+					font-size: 1.65em;
+					margin: 0 0 0.5em 0;
+				}
 
-		.is-page-content .byline
-		{
-			font-size: 1.65em;
-			margin: 0 0 0.5em 0;
-		}
+				.box.post ul.meta
+				{
+					margin: 0 0 0.5em 0;
+				}
+			
+			.box.post-summary
+			{
+			}
+			
+				.box.post-summary h3
+				{
+					line-height: 1em;
+					margin: 0 0 0.75em 0;
+				}
 
-		.is-page-content ul.meta
-		{
-			margin: 0 0 0.5em 0;
-		}
+				.box.post-summary .meta
+				{
+					margin: 0;
+					line-height: 1em;
+				}
+
+			.box.page-content
+			{
+			}
+
+				.box.page-content header
+				{
+					margin: 0 0 2.5em 0;
+				}
+
+				.box.page-content h2
+				{
+					font-size: 3em;
+					margin: 0 0 0.5em 0;
+				}
+
+				.box.page-content header > p
+				{
+					font-size: 1.65em;
+					margin: 0 0 0.5em 0;
+				}
+
+				.box.page-content ul.meta
+				{
+					margin: 0 0 0.5em 0;
+				}
 
 /*********************************************************************************/
 /* Sidebar + Content                                                             */
@@ -196,6 +186,17 @@
 		{
 			padding-top: 0;
 		}
+
+		.sidebar h2.major
+		{
+			text-align: left;
+			margin: 0 0 1em 0;
+		}
+		
+			.sidebar h2.major span
+			{
+				padding-left: 0;
+			}
 
 	.content
 	{
@@ -217,7 +218,7 @@
 
 	#banner-wrapper
 	{
-		padding: 8em 0 8em 0;
+		padding: 11em 0;
 	}
 	
 	#main-wrapper
@@ -237,7 +238,7 @@
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 700;
 		text-transform: uppercase;
-		padding: 6em 0 3em 0;
+		padding: 5em 0 2em 0;
 		background: #fff;
 		margin: 0 auto;
 	}
@@ -259,9 +260,14 @@
 			}
 		
 			#header .logo h1,
-			#header .logo .byline
+			#header .logo p
 			{
 				display: inline;
+			}
+			
+			#header .logo p
+			{
+				color: #C1CAC5;
 			}
 
 /*********************************************************************************/
@@ -274,27 +280,17 @@
 		top: 0;
 		left: 0;
 		z-index: 1000;
-		background: rgba(255,255,255,0.95);
+		background-color: rgba(255,255,255,0.95);
+		background-image: url('images/overlay.png');
 		width: 100%;
-		height: 3.5em;
-		line-height: 3.5em;
+		height: 3.25em;
+		line-height: 3.25em;
 		text-align: center;
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 700;
 		text-transform: uppercase;
+		cursor: default;
 	}
-
-		#nav:after
-		{
-			content: '';
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			background: url('/static/images/overlay.png');
-			opacity: 0.03;
-		}
 
 		#nav ul
 		{
@@ -315,14 +311,20 @@
 			transition: top .15s ease-in-out;
 		}
 
-			#nav li a
+			#nav li > ul
+			{
+				display: none;
+			}
+
+			#nav li a,
+			#nav li span
 			{
 				position: relative;
 				display: block;
 				text-decoration: none;
 				color: #6b7770;
-				top: -3px;
-				padding: 3px 1.5em 0.25em 1.5em;
+				top: -6px;
+				padding: 6px 1.5em 0.25em 1.5em;
 				border-bottom-left-radius: 6px;
 				border-bottom-right-radius: 6px;
 				outline: 0;
@@ -333,26 +335,92 @@
 				transition: background-color .075s ease-in-out, color .075s ease-in-out;
 			}
 
-			#nav li:hover
+			#nav li:hover,
+			#nav li.active
 			{
 				top: 3px;
 			}
 
-				#nav li:hover a
+				#nav li:hover a,
+				#nav li:hover span,
+				#nav li.active a,
+				#nav li.active span
 				{
 					background: #C1CAC5;
 					color: #fff;
 				}
 
-			#nav li.current_page_item
+			#nav li.current
 			{
 			}
 
-				#nav li.current_page_item a
+				#nav li.current a
 				{
-					background: #e3daa8;
+					background: #b1ddab;
 					color: #fff;
 				}
+
+	.dropotron
+	{
+		background: #6B7770;
+		color: #fff;
+		border-radius: 6px;
+		line-height: 2.75em;
+		text-align: center;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		padding: 1em 0;
+		text-align: left;
+		min-width: 14em;
+		margin-top: -1em;
+		box-shadow: 0 1em 2em 0 rgba(0,0,0,0.1);
+	}
+	
+		.dropotron li
+		{
+		}
+		
+			.dropotron li > a,
+			.dropotron li > span
+			{
+				display: block;
+				color: #D7DAD8;
+				text-decoration: none;
+				padding: 0 1.25em;
+			}
+
+			.dropotron li:hover > a,
+			.dropotron li:hover > span,
+			.dropotron li.active > a,
+			.dropotron li.active > span
+			{
+				color: #fff;
+				background: #7B8780;
+			}
+
+			.dropotron li:first-child
+			{
+				border-top: 0;
+			}
+			
+		.dropotron.level-0
+		{
+			margin-top: 1em;
+			font-size: 0.9em;
+		}
+		
+			.dropotron.level-0:before
+			{
+				content: '';
+				position: absolute;
+				left: 50%;
+				margin-left: -1em;
+				top: -0.65em;
+				border-bottom: solid 1em #6B7770;
+				border-left: solid 1em transparent;
+				border-right: solid 1em transparent;
+			}
 
 /*********************************************************************************/
 /* Banner                                                                        */
@@ -360,7 +428,7 @@
 
 	#banner
 	{
-		padding: 5em 0 5em 0;
+		padding: 4em 0 3.5em 0;
 	}
 	
 		#banner h2
@@ -369,10 +437,10 @@
 			margin: 0 0 0.75em 0;
 		}
 		
-		#banner .byline
+		#banner p
 		{
 			font-size: 1.35em;
-			margin: 0 0 1.75em 0;
+			margin: 0 0 1.25em 0;
 		}
 
 		#banner .button
@@ -386,13 +454,8 @@
 
 	#main
 	{
-		padding: 4em 0 4em 0;
+		padding: 6em 0 6em 0;
 	}
-
-		#main > .row
-		{
-			padding: 3em 0 3em 0;
-		}
 
 /*********************************************************************************/
 /* Footer                                                                        */
@@ -404,11 +467,11 @@
 		padding: 8em 0 8em 0;
 	}
 	
-		#footer > .row
+		#footer h2.major
 		{
-			padding: 2em 0 2em 0;
-		}
-	
+			margin: 0 0 1em 0;
+		}		
+
 /*********************************************************************************/
 /* Copyright                                                                     */
 /*********************************************************************************/

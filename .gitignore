@@ -1,38 +1,59 @@
-# Basics
 *.py[cod]
 __pycache__
 *.sw[po]
-*.egg*
-.virtualenv
-.venv
+*~
 .DS_Store
 *.sublime-project
 *.sublime-workspace
-*.sqlite*
+*.sqlite3
 media/*
-static/*
+node_modules/
+.sass-cache
 
-# Logs
-*.log
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
 pip-log.txt
 
 # Unit test / coverage reports
 .coverage
 .tox
 nosetests.xml
-.noseids
 
 # Translations
 *.mo
-*.pot
 
-# Vim
-*~
-*.swp
-*.swo
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
 
-# npm
-node_modules/
+# Complexity
+output/*.html
+output/*/index.html
 
-# Campass
-.sass-cache
+# Sphinx
+docs/_build
+
+.webassets-cache
+
+# Virtualenvs
+env
+env*
+.venv
+.virtualenv
