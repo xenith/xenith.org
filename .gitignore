@@ -9,6 +9,7 @@ __pycache__
 media/*
 node_modules/
 .sass-cache
+*.db
 
 # C extensions
 *.so

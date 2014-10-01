@@ -17,7 +17,7 @@ class ProdConfig(Config):
     """Production configuration."""
     ENV = 'prod'
     DEBUG = False
-    SECRET_KEY = os_env['XENITH_SECRET']  # TODO: Change me
+    SECRET_KEY = os_env.get('XENITH_SECRET', 'secret-key')  # TODO: Change me
     SQLALCHEMY_DATABASE_URI = 'postgresql://typhoon.xenith.org/xenith.org'
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
 

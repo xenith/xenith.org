@@ -5,6 +5,7 @@ import sys
 import subprocess
 from flask.ext.script import Manager, Shell, Server
 from flask.ext.migrate import MigrateCommand
+from flask import url_for
 
 from xenith.app import create_app
 from xenith.user.models import User
@@ -31,6 +32,25 @@ def test():
     import pytest
     exit_code = pytest.main(['tests', '--verbose'])
     return exit_code
+
+@manager.command
+def list_routes():
+    """List all the routes configured in the application."""
+    import urllib
+    output = []
+    for rule in app.url_map.iter_rules():
+
+        options = {}
+        for arg in rule.arguments:
+            options[arg] = "[{0}]".format(arg)
+
+        methods = ','.join(rule.methods)
+        url = url_for(rule.endpoint, **options)
+        line = urllib.unquote("{:50s} {:20s} {}".format(rule.endpoint, methods, url))
+        output.append(line)
+
+    for line in sorted(output):
+        print line
 
 manager.add_command('server', Server())
 manager.add_command('shell', Shell(make_context=_make_context))

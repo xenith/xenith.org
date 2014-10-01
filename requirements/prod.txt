@@ -37,3 +37,9 @@ Flask-Bcrypt==0.6.0
 
 # Caching
 Flask-Cache==0.13.1
+
+# Mail
+Flask-Mail==0.9.1
+
+# Admin
+Flask-Admin==1.0.8

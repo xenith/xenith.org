@@ -83,14 +83,14 @@ module.exports = function (grunt) {
       _defaults: {
         bg: true
       },
-      runDjango: {
+      runFlask: {
         cmd: 'python <%= paths.manageScript %> server'
       }
     }
   });
 
   grunt.registerTask('serve', [
-    'bgShell:runDjango',
+    'bgShell:runFlask',
     'watch'
   ]);
 

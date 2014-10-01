@@ -1,6 +1,13 @@
 {
   "name": "xenith",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "This app powers xenith.org",
+  "author": "Justin Seabrook-Rocha <xenith@xenith.org>",
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xenith/xenith.org.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",

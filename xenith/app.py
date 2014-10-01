@@ -11,6 +11,8 @@ from xenith.extensions import (
     login_manager,
     migrate,
     debug_toolbar,
+    mail,
+    admin,
 )
 from xenith import public, user
 
@@ -37,6 +39,8 @@ def register_extensions(app):
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
+    mail.init_app(app)
+    admin.init_app(app)
     return None
 
 

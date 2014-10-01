@@ -1,9 +1,6 @@
 # -- coding: utf-8 --
 """
-Starter fabfile for deploying the xenith project.
-
-Change all the things marked CHANGEME. Other things can be left at their
-defaults if you are happy with the default layout.
+Fabfile for deploying the xenith.org project.
 """
 
 import posixpath
@@ -17,19 +14,14 @@ from fabric.operations import _prefix_commands, _prefix_env_vars
 env.hosts = ['xenith@xenith.org']
 env.code_dir = '/srv/www/xenith.org'
 env.project_dir = '/srv/www/xenith.org/xenith'
-env.static_root = '/srv/www/xenith.org/static/'
+env.static_root = '/srv/www/xenith.org/xenith/static/'
 env.virtualenv = '/srv/www/xenith.org/.venv'
 env.code_repo = 'git@github.com:xenith/xenith.org.git'
-env.django_settings_module = 'config.settings'
 
 # Python version
 PYTHON_BIN = "python2.7"
 PYTHON_PREFIX = ""  # e.g. /usr/local  Use "" for automatic
 PYTHON_FULL_PATH = "%s/bin/%s" % (PYTHON_PREFIX, PYTHON_BIN) if PYTHON_PREFIX else PYTHON_BIN
-
-# Set to true if you can restart your webserver (via wsgi.py), false to stop/start your webserver
-# CHANGEME
-DJANGO_SERVER_RESTART = True
 
 
 def virtualenv(venv_dir):
@@ -86,7 +78,7 @@ def push_sources():
 @task
 def run_tests():
     """ Runs the Django test suite as is.  """
-    local("./xenith/manage.py test")
+    local("./manage.py test")
 
 
 @task
@@ -123,19 +115,14 @@ def webserver_restart():
     """
     Restarts the webserver that is running the Django instance
     """
-    if DJANGO_SERVER_RESTART:
-        with cd(env.code_dir):
-            run("touch %s/config/wsgi.py" % env.project_dir)
-    else:
-        with settings(warn_only=True):
-            webserver_stop()
-        webserver_start()
+    with cd(env.code_dir):
+        run("touch %s/__init__.py" % env.project_dir)
 
 
 def restart():
     """ Restart the wsgi process """
     with cd(env.code_dir):
-        run("touch %s/config/wsgi.py" % env.project_dir)
+        run("touch %s/__init__.py" % env.project_dir)
 
 
 def build_static():
