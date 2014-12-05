@@ -19,25 +19,25 @@
 
 		<link rel="canonical" href="http://xenith.org/">
 		<link rel="home" href="http://xenith.org/blog/" />
-		<link rel="shortcut icon" href="/static/favicon.png" />
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/apple-touch-icon-144-precomposed.png" />
-	  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/apple-touch-icon-114-precomposed.png" />
-	  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/apple-touch-icon-72-precomposed.png" />
-	  <link rel="apple-touch-icon-precomposed" href="/static/apple-touch-icon-57-precomposed.png" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='apple-touch-icon-144-precomposed.png') }}" />
+	  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='apple-touch-icon-114-precomposed.png') }}" />
+	  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='apple-touch-icon-72-precomposed.png') }}" />
+	  <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='apple-touch-icon-57-precomposed.png') }}" />
 	  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
 
-		<!--[if lte IE 8]><script src="static/css/ie/html5shiv.js"></script><![endif]-->
-		<script src="/static/js/jquery.min.js"></script>
-		<script src="/static/js/jquery.dropotron.min.js"></script>
-		<script src="/static/js/skel.min.js"></script>
-		<script src="/static/js/skel-layers.min.js"></script>
-		<script src="/static/js/init.js"></script>
+		<!--[if lte IE 8]><script src="{{ url_for('static', filename='css/ie/html5shiv.js') }}"></script><![endif]-->
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/skel-layers.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/init.js') }}"></script>
 		<noscript>
-			<link rel="stylesheet" href="/static/css/skel.css" />
-			<link rel="stylesheet" href="/static/css/style.css" />
-			<link rel="stylesheet" href="/static/css/style-desktop.css" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/skel.css') }}" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/style-desktop.css') }}" />
 		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{{ url_for('static', filename='css/ie/v8.css') }}" /><![endif]-->
 	</head>
 	<body class="{% block body_class %}{% endblock body_class %}">
 
@@ -46,7 +46,7 @@
 				<div class="logo container">
 					<div>
 						<h1><a href="/" id="logo">Xenith.org</a></h1>
-						<p>Peering for Good</p>
+						<p>Peering for Life</p>
 					</div>
 				</div>
 			</header>
@@ -83,7 +83,7 @@
 
 		<!-- Footer -->
 			<footer id="footer" class="container">
-				<div class="row double">
+				<div class="row 200%">
 					<div class="12u">
 
 						<!-- About -->
@@ -96,7 +96,7 @@
 
 					</div>
 				</div>
-				<div class="row double">
+				<div class="row 200%">
 					<div class="12u">
 
 						<!-- Contact -->
@@ -105,7 +105,7 @@
 								<ul class="contact">
 									<li><a class="icon fa-facebook" href="https://www.facebook.com/xenith.org"><span class="label">Facebook</span></a></li>
 									<li><a class="icon fa-twitter" href="https://twitter.com/xenith"><span class="label">Twitter</span></a></li>
-									<li><a class="icon fa-linkedin" href="https://www.linkedin.com/in/xenith"><span class="label">Instagram</span></a></li>
+									<li><a class="icon fa-linkedin" href="https://www.linkedin.com/in/xenith"><span class="label">LinkedIn</span></a></li>
 									<li><a class="icon fa-google-plus" href="https://plus.google.com/+JustinSeabrookRocha"><span class="label">Google+</span></a></li>
 									<li><a class="icon fa-rss" href="http://xenith.org/blog/feeds/"><span class="label">Dribbble</span></a></li>
 								</ul>

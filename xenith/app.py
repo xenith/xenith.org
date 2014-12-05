@@ -14,7 +14,7 @@ from xenith.extensions import (
     mail,
     admin,
 )
-from xenith import public, user
+from xenith import public
 
 
 def create_app(config_object=ProdConfig):
@@ -46,7 +46,7 @@ def register_extensions(app):
 
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
-    app.register_blueprint(user.views.blueprint)
+    #app.register_blueprint(user.views.blueprint)
     return None
 
 

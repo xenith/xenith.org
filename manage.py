@@ -3,12 +3,12 @@
 import os
 import sys
 import subprocess
-from flask.ext.script import Manager, Shell, Server
+from flask.ext.script import Manager, Shell, Server, prompt, prompt_bool, prompt_pass
 from flask.ext.migrate import MigrateCommand
 from flask import url_for
 
 from xenith.app import create_app
-from xenith.user.models import User
+from xenith.public.models import User
 from xenith.settings import DevConfig, ProdConfig
 from xenith.database import db
 
@@ -51,6 +51,31 @@ def list_routes():
 
     for line in sorted(output):
         print line
+
+@manager.command
+def add_user():
+    print(u'Set up a new user:')
+    username = prompt('Username')
+    email = prompt('E-mail')
+    first_name = prompt('First name')
+    last_name = prompt('Last name')
+    password = prompt_pass('Password')
+    is_admin = prompt_bool('Admin user')
+
+    user = User(username=username, email=email, password=password,
+                first_name=first_name, last_name=last_name, is_admin=is_admin,
+                is_active=True)
+
+    db.session.add(user)
+
+    try:
+        db.session.commit()
+    except DatabaseError as exc:
+        print(u'Error creating user: \'{}\''.format(exc.message))
+        sys.exit(1)
+
+    print(u'User "{}" created.'.format(user.email))
+
 
 manager.add_command('server', Server())
 manager.add_command('shell', Shell(make_context=_make_context))
