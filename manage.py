@@ -3,8 +3,8 @@
 import os
 import sys
 import subprocess
-from flask.ext.script import Manager, Shell, Server, prompt, prompt_bool, prompt_pass
-from flask.ext.migrate import MigrateCommand
+from flask_script import Manager, Shell, Server, prompt, prompt_bool, prompt_pass
+from flask_migrate import MigrateCommand
 from flask import url_for
 
 from xenith.app import create_app

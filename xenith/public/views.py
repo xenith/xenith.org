@@ -2,7 +2,7 @@
 '''Public section, including homepage and static pages.'''
 from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
-from flask.ext.login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user
 
 from xenith.extensions import login_manager
 from .models import User
