@@ -60,6 +60,7 @@ module.exports = function (grunt) {
           cssDir: 'static/css',
           fontsDir: 'static/fonts',
           imagesDir: 'static/images',
+          javascriptsDir: 'static/js',
           relativeAssets: false,
           assetCacheBuster: false,
           outputStyle: 'compressed',
