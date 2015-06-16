@@ -2,6 +2,7 @@
 from xenith.app import create_app
 from xenith.settings import ProdConfig, DevConfig
 
+
 def test_production_config():
     app = create_app(ProdConfig)
     assert app.config['ENV'] == 'prod'

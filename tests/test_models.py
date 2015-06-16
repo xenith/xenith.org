@@ -7,6 +7,7 @@ import pytest
 from xenith.user.models import User, Role
 from .factories import UserFactory
 
+
 @pytest.mark.usefixtures('db')
 class TestUser:
 
@@ -40,7 +41,7 @@ class TestUser:
 
     def test_check_password(self):
         user = User.create(username="foo", email="foo@bar.com",
-                    password="foobarbaz123")
+                           password="foobarbaz123")
         assert user.check_password('foobarbaz123') is True
         assert user.check_password("barfoobaz") is False
 

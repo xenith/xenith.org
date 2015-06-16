@@ -5,6 +5,7 @@ from factory.alchemy import SQLAlchemyModelFactory
 from xenith.user.models import User
 from xenith.database import db
 
+
 class BaseFactory(SQLAlchemyModelFactory):
 
     class Meta:

@@ -22,4 +22,3 @@ assets = Environment()
 
 assets.register("js_all", js)
 assets.register("css_all", css)
-

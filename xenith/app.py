@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''The app module, containing the app factory function.'''
+"""The app module, containing the app factory function."""
 from flask import Flask, render_template
 
 from xenith.settings import ProdConfig
@@ -18,11 +18,11 @@ from xenith import public
 
 
 def create_app(config_object=ProdConfig):
-    '''An application factory, as explained here:
+    """An application factory, as explained here:
         http://flask.pocoo.org/docs/patterns/appfactories/
 
     :param config_object: The configuration object to use.
-    '''
+    """
     app = Flask(__name__)
     app.config.from_object(config_object)
     register_extensions(app)
@@ -46,7 +46,7 @@ def register_extensions(app):
 
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
-    #app.register_blueprint(user.views.blueprint)
+    # app.register_blueprint(user.views.blueprint)
     return None
 
 

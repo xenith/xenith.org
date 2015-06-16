@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-import subprocess
-from flask_script import Manager, Shell, Server, prompt, prompt_bool, prompt_pass
+from flask_script import (Manager, Shell, Server, prompt
+                          prompt_bool, prompt_pass)
 from flask_migrate import MigrateCommand
 from flask import url_for
 
@@ -20,11 +20,13 @@ else:
 manager = Manager(app)
 TEST_CMD = "py.test tests"
 
+
 def _make_context():
     """Return context dict for a shell session so you can access
     app, db, and the User model by default.
     """
     return {'app': app, 'db': db, 'User': User}
+
 
 @manager.command
 def test():
@@ -32,6 +34,7 @@ def test():
     import pytest
     exit_code = pytest.main(['tests', '--verbose'])
     return exit_code
+
 
 @manager.command
 def list_routes():
@@ -46,11 +49,13 @@ def list_routes():
 
         methods = ','.join(rule.methods)
         url = url_for(rule.endpoint, **options)
-        line = urllib.unquote("{:50s} {:20s} {}".format(rule.endpoint, methods, url))
+        line = urllib.unquote("{:50s} {:20s} {}"
+                              .format(rule.endpoint, methods, url))
         output.append(line)
 
     for line in sorted(output):
         print line
+
 
 @manager.command
 def add_user():
