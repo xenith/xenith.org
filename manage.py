@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-from flask_script import (Manager, Shell, Server, prompt
+from flask_script import (Manager, Shell, Server, prompt,
                           prompt_bool, prompt_pass)
 from flask_migrate import MigrateCommand
 from flask import url_for

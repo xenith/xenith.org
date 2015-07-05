@@ -4,12 +4,9 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en-us"> <!--<![endif]-->
+<html lang="en-us">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" />
 		<title>Xenith.org - {% block title %}{% endblock title %}{% block title_page %}{% endblock title_page %}</title>
 		<meta name="robots" content="follow, all" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -26,102 +23,106 @@
 	  <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='apple-touch-icon-57-precomposed.png') }}" />
 	  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
 
-		<!--[if lte IE 8]><script src="{{ url_for('static', filename='css/ie/html5shiv.js') }}"></script><![endif]-->
-		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/skel-layers.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/init.js') }}"></script>
-		<noscript>
-			<link rel="stylesheet" href="{{ url_for('static', filename='css/skel.css') }}" />
-			<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-			<link rel="stylesheet" href="{{ url_for('static', filename='css/style-desktop.css') }}" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="{{ url_for('static', filename='css/ie/v8.css') }}" /><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="/static/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/static/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="/static/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="{% block body_class %}{% endblock body_class %}">
+		<div id="page-wrapper">
 
-		<!-- Header -->
-			<header id="header">
-				<div class="logo container">
-					<div>
-						<h1><a href="/" id="logo">Xenith.org</a></h1>
-						<p>Peering for Life</p>
+			<!-- Header -->
+				<header id="header">
+					<div class="logo container">
+						<div>
+							<h1><a href="index.html" id="logo">Xenith.org</a></h1>
+							<p>Peering for Life</p>
+						</div>
 					</div>
-				</div>
-			</header>
+				</header>
 
-		<!-- Nav -->
-			<nav id="nav" class="skel-layers-fixed">
-				<ul>
-					<li {% block menu_home_highlight %}{% endblock %}><a href="/">Home</a></li>
-					<li {% block menu_blog_highlight %}{% endblock %}><a href="/blog">Blog</a></li>
-					<li {% block menu_about_highlight %}{% endblock %}><a href="/about">About</a></li>
-					<li {% block menu_calendar_highlight %}{% endblock %}><a href="/calendar">Calendar</a></li>
-					<li {% block menu_contact_highlight %}{% endblock %}><a href="/contact">Contact</a></li>
-					<!--<li>
-						<a href="">Dropdown</a>
-						<ul>
-							<li><a href="#">Lorem ipsum dolor</a></li>
-							<li><a href="#">Magna phasellus</a></li>
-							<li>
-								<a href="">Phasellus consequat</a>
-								<ul>
-									<li><a href="#">Lorem ipsum dolor</a></li>
-									<li><a href="#">Phasellus consequat</a></li>
-									<li><a href="#">Magna phasellus</a></li>
-									<li><a href="#">Etiam dolore nisl</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Veroeros feugiat</a></li>
-						</ul>
-					</li>-->
-				</ul>
-			</nav>
+			<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li {% block menu_home_highlight %}{% endblock %}><a href="index.html">Home</a></li>
+						<li {% block menu_blog_highlight %}{% endblock %}><a href="/blog">Blog</a></li>
+						<li {% block menu_about_highlight %}{% endblock %}><a href="/about">About</a></li>
+						<li {% block menu_calendar_highlight %}{% endblock %}><a href="/calendar">Calendar</a></li>
+						<li {% block menu_contact_highlight %}{% endblock %}><a href="/contact">Contact</a></li>
+						<!--<li>
+							<a href="#">Dropdown</a>
+							<ul>
+								<li><a href="#">Lorem ipsum dolor</a></li>
+								<li><a href="#">Magna phasellus</a></li>
+								<li>
+									<a href="#">Phasellus consequat</a>
+									<ul>
+										<li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Phasellus consequat</a></li>
+										<li><a href="#">Magna phasellus</a></li>
+										<li><a href="#">Etiam dolore nisl</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Veroeros feugiat</a></li>
+							</ul>
+						</li>-->
+					</ul>
+				</nav>
 
 {% block page %}{% endblock %}
 
-		<!-- Footer -->
-			<footer id="footer" class="container">
-				<div class="row 200%">
-					<div class="12u">
+			<!-- Footer -->
+				<footer id="footer" class="container">
+					<div class="row 200%">
+						<div class="12u">
 
-						<!-- About -->
-							<section>
-								<h2 class="major"><span>What's this about?</span></h2>
-								<p>
-									Network Architect/Engineer spouting off about IPv6, network design, security, and peering.
-								</p>
-							</section>
+							<!-- About -->
+								<section>
+									<h2 class="major"><span>What's this about?</span></h2>
+									<p>
+										Network Architect/Engineer spouting off about IPv6, network design, security, and peering.
+									</p>
+								</section>
 
+						</div>
 					</div>
-				</div>
-				<div class="row 200%">
-					<div class="12u">
+					<div class="row 200%">
+						<div class="12u">
 
-						<!-- Contact -->
-							<section>
-								<h2 class="major"><span>Get in touch</span></h2>
-								<ul class="contact">
-									<li><a class="icon fa-facebook" href="https://www.facebook.com/xenith.org"><span class="label">Facebook</span></a></li>
-									<li><a class="icon fa-twitter" href="https://twitter.com/xenith"><span class="label">Twitter</span></a></li>
-									<li><a class="icon fa-linkedin" href="https://www.linkedin.com/in/xenith"><span class="label">LinkedIn</span></a></li>
-									<li><a class="icon fa-google-plus" href="https://plus.google.com/+JustinSeabrookRocha"><span class="label">Google+</span></a></li>
-									<li><a class="icon fa-rss" href="http://xenith.org/blog/feeds/"><span class="label">Dribbble</span></a></li>
-								</ul>
-							</section>
+							<!-- Contact -->
+								<section>
+									<h2 class="major"><span>Get in touch</span></h2>
+									<ul class="contact">
+										<li><a class="icon fa-facebook" href="https://www.facebook.com/xenith.org"><span class="label">Facebook</span></a></li>
+										<li><a class="icon fa-twitter" href="https://twitter.com/xenith"><span class="label">Twitter</span></a></li>
+										<li><a class="icon fa-google-plus" href="https://plus.google.com/+JustinSeabrookRocha"><span class="label">Google+</span></a></li>
+										<li><a class="icon fa-linkedin" href="https://www.linkedin.com/in/xenith"><span class="label">LinkedIn</span></a></li>
+										<li><a class="icon fa-rss" href="http://xenith.org/blog/feeds/"><span class="label">RSS</span></a></li>
+									</ul>
+								</section>
 
-					</div>
-				</div>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul class="menu">
-							<li>&copy; Justin Seabrook-Rocha. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
+						</div>
 					</div>
 
-			</footer>
+					<!-- Copyright -->
+						<div id="copyright">
+							<ul class="menu">
+								<li>&copy; Justin Seabrook-Rocha. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/static/js/jquery.min.js"></script>
+			<script src="/static/js/jquery.dropotron.min.js"></script>
+			<script src="/static/js/skel.min.js"></script>
+			<script src="/static/js/skel-viewport.min.js"></script>
+			<script src="/static/js/util.js"></script>
+			<!--[if lte IE 8]><script src="/static/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/static/js/main.js"></script>
 
 	</body>
 </html>
