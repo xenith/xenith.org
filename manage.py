@@ -39,7 +39,7 @@ def test():
 @manager.command
 def list_routes():
     """List all the routes configured in the application."""
-    import urllib
+    import urllib.parse
     output = []
     for rule in app.url_map.iter_rules():
 
@@ -49,17 +49,17 @@ def list_routes():
 
         methods = ','.join(rule.methods)
         url = url_for(rule.endpoint, **options)
-        line = urllib.unquote("{:50s} {:20s} {}"
+        line = urllib.parse.unquote("{:50s} {:20s} {}"
                               .format(rule.endpoint, methods, url))
         output.append(line)
 
     for line in sorted(output):
-        print line
+        print(line)
 
 
 @manager.command
 def add_user():
-    print(u'Set up a new user:')
+    print('Set up a new user:')
     username = prompt('Username')
     email = prompt('E-mail')
     first_name = prompt('First name')
@@ -76,10 +76,10 @@ def add_user():
     try:
         db.session.commit()
     except DatabaseError as exc:
-        print(u'Error creating user: \'{}\''.format(exc.message))
+        print('Error creating user: \'{}\''.format(exc.message))
         sys.exit(1)
 
-    print(u'User "{}" created.'.format(user.email))
+    print('User "{}" created.'.format(user.email))
 
 
 manager.add_command('server', Server())
