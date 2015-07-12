@@ -4,7 +4,7 @@
 
 {% block body_class %}{% endblock %}
 
-{% block menu_about_highlight %}class="current"{% endblock %}
+{% block menu_home_highlight %}class="current"{% endblock %}
 
 {% block page %}
 			<!-- Main -->
@@ -18,7 +18,7 @@
 										<form id="loginForm" method="POST" class="navbar-form form-inline navbar-right" action="/login" role="login">
 											{{ form.csrf_token }}
 											<div class="form-group">
-												{{ form.username(placeholder="Username", class_="form-control") }}{% endfor %}<br>
+												{{ form.username(placeholder="Username", class_="form-control") }}
 												{{ form.password(placeholder="Password", class_="form-control") }}
 												{{ form.remember_me(placeholder="Remember Me", class_="form-control") }} Remember Me
 											</div>

@@ -29,7 +29,7 @@ class LoginForm(Form):
             self.password.errors.append('Invalid username or password')
             return False
 
-        if not self.user.active:
+        if not self.user.is_active:
             self.username.errors.append('User not activated')
             return False
         return True
