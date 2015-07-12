@@ -26,3 +26,6 @@ mail = Mail()
 
 from flask_admin import Admin
 admin = Admin()
+
+from flask_wtf.csrf import CsrfProtect
+csrf = CsrfProtect()

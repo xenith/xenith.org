@@ -13,8 +13,9 @@ from xenith.extensions import (
     debug_toolbar,
     mail,
     admin,
+    csrf,
 )
-from xenith import public
+from xenith import public#, blog
 
 
 def create_app(config_object=ProdConfig):
@@ -41,12 +42,13 @@ def register_extensions(app):
     migrate.init_app(app, db)
     mail.init_app(app)
     admin.init_app(app)
+    csrf.init_app(app)
     return None
 
 
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
-    # app.register_blueprint(user.views.blueprint)
+    # app.register_blueprint(blog.views.blueprint)
     return None
 
 
