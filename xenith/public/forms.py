@@ -3,7 +3,7 @@ from flask_wtf import Form
 from wtforms import TextField, PasswordField, BooleanField
 from wtforms.validators import DataRequired
 
-from .models import User
+from xenith.user.models import User
 
 
 class LoginForm(Form):
@@ -29,7 +29,7 @@ class LoginForm(Form):
             self.password.errors.append('Invalid username or password')
             return False
 
-        if not self.user.is_active:
+        if not self.user.active:
             self.username.errors.append('User not activated')
             return False
         return True

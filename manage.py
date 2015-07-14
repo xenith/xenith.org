@@ -8,7 +8,7 @@ from flask_migrate import MigrateCommand
 from flask import url_for
 
 from xenith.app import create_app
-from xenith.public.models import User
+from xenith.user.models import User
 from xenith.settings import DevConfig, ProdConfig
 from xenith.database import db
 
@@ -62,14 +62,12 @@ def add_user():
     print('Set up a new user:')
     username = prompt('Username')
     email = prompt('E-mail')
-    first_name = prompt('First name')
-    last_name = prompt('Last name')
+    full_name = prompt('Full name')
     password = prompt_pass('Password')
     is_admin = prompt_bool('Admin user')
 
     user = User(username=username, email=email, password=password,
-                first_name=first_name, last_name=last_name, is_admin=is_admin,
-                is_active=True)
+                full_name=full_name, admin=is_admin)
 
     db.session.add(user)
 

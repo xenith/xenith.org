@@ -33,6 +33,7 @@ def create_app(config_object=ProdConfig):
 
 
 def register_extensions(app):
+    """ Initialize extensions """
     assets.init_app(app)
     bcrypt.init_app(app)
     cache.init_app(app)
@@ -43,6 +44,8 @@ def register_extensions(app):
     mail.init_app(app)
     admin.init_app(app)
     csrf.init_app(app)
+    # Various configuration options for some extensions
+    login_manager.login_view = "public.login"
     return None
 
 
@@ -56,6 +59,8 @@ def register_errorhandlers(app):
     def render_error(error):
         # If a HTTPException, pull the `code` attribute; default to 500
         error_code = getattr(error, 'code', 500)
+        if error_code == 500:
+            db.session.rollback()
         return render_template("{0}.html".format(error_code)), error_code
     for errcode in [401, 404, 500]:
         app.errorhandler(errcode)(render_error)

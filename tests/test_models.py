@@ -35,7 +35,7 @@ class TestUser:
         assert bool(user.username)
         assert bool(user.email)
         assert bool(user.created_at)
-        assert user.is_admin is False
+        assert user.is_admin() is False
         assert user.active is True
         assert user.check_password('myprecious')
 
@@ -44,10 +44,6 @@ class TestUser:
                            password="foobarbaz123")
         assert user.check_password('foobarbaz123') is True
         assert user.check_password("barfoobaz") is False
-
-    def test_full_name(self):
-        user = UserFactory(first_name="Foo", last_name="Bar")
-        assert user.full_name == "Foo Bar"
 
     def test_roles(self):
         role = Role(name='admin')
