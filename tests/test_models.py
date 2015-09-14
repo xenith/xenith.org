@@ -52,3 +52,9 @@ class TestUser:
         u.roles.append(role)
         u.save()
         assert role in u.roles
+
+    def test_avatar(self):
+        u = User(username='john', email='john@example.com')
+        avatar = u.avatar(128)
+        expected = 'http://www.gravatar.com/avatar/d4c74594d841139328695756648b6bd6'
+        assert avatar[0:len(expected)] == expected
