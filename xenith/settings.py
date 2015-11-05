@@ -41,7 +41,7 @@ class TestConfig(Config):
     DEBUG = True
     SECRET_KEY = "sekrit!"
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
-    BCRYPT_LOG_ROUNDS = 1  # For faster tests
+    BCRYPT_LOG_ROUNDS = 4  # For faster tests
     WTF_CSRF_ENABLED = False  # Allows form testing
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
     DEBUG_TB_INTERCEPT_REDIRECTS = False
