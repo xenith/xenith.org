@@ -5,7 +5,7 @@ import sys
 from flask_script import (Manager, Shell, Server, prompt,
                           prompt_bool, prompt_pass)
 from flask_script.commands import Clean, ShowUrls
-from flask_migrate import MigrateCommand
+from flask_migrate import MigrateCommand, Migrate
 from flask import url_for
 
 from xenith.app import create_app
@@ -19,6 +19,7 @@ else:
     app = create_app(DevConfig)
 
 manager = Manager(app)
+migrate = Migrate(app, db)
 TEST_CMD = "py.test tests"
 
 
