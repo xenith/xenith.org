@@ -1,0 +1,31 @@
+baseURL = "http://xenith.org/"
+languageCode = "en-us"
+title = "Xenith.org - Where dreams go to die"
+theme = "hugo-coder"
+
+[params]
+    author = "Justin Seabrook-Rocha (Xenith)"
+    info = "Info"
+    description = "Description"
+
+# Social links
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github fa-2x"
+    weight = 1
+    url = "https://github.com/xenith/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter fa-2x"
+    weight = 3
+    url = "https://twitter.com/xenith/"
+
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/posts/"
+[[menu.main]]
+    name = "About"
+    weight = 2
+    url = "/about/"
